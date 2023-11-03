@@ -1,0 +1,82 @@
+On mettra dans le core module tout ce qui ne démarre qu'une fois
+Exemples:
+    -Services
+    -Interceptors
+    -Guards
+    -Composants qui sont instancié une fois et qui sont démarré que dans le template racine
+
+
+
+.angular
+
+.vscode
+
+node_modules
+
+src
+
+    app
+
+    core
+
+    features
+
+        admin-area
+
+            admin-area-routing.module.ts
+
+            admin-area.component.html
+
+            admin-area.component.ts
+
+            admin-area.module.ts
+
+        member-area
+
+            calendar
+
+            employees
+
+            shared-member
+
+            member-area-routing.module.ts
+
+            member-area.component.html
+
+            member-area.component.scss
+
+            member-area.component.ts
+
+            member-area.module.ts
+
+        public-area
+
+            home
+
+            login
+
+            register
+
+            shared-public
+
+            public-area-routing.module.ts 
+
+            public-area.component.html
+
+            public-area.component.scss
+
+            public-area.component.ts
+
+            public-area.module.ts
+
+    shared
+
+    app-routing.module.ts
+
+    app.component.html
+
+    app.component.scss
+
+    app.component.spec.ts
+
+    app.component.ts

@@ -1,0 +1,5 @@
+Dans le shared, on factorise des éléments globaux à l'application mais que l'on peut retrouvé à plusieurs endroits
+Exemples:
+  -Composant (ex: qui représente un bouton, une modale, )
+  -Directives
+  -Pipes
