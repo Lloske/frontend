@@ -5,9 +5,9 @@ import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
 import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 // import momentPlugin from '@fullcalendar/moment'; // Permet de formater des dates de facons plus précise: https://fullcalendar.io/docs/moment-plugin
 import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale française
-import timeGridPlugin from '@fullcalendar/timegrid'
-import resourceDayGridPlugin from '@fullcalendar/resource-daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
+// import timeGridPlugin from '@fullcalendar/timegrid'
+// import resourceDayGridPlugin from '@fullcalendar/resource-daygrid';
+// import interactionPlugin from '@fullcalendar/interaction';
 
 
 @Component({
@@ -74,7 +74,9 @@ export class CalendarComponent {
 
       resourceTimelineDay: { // Nom de la vue affectée par les options ci-dessous
         titleFormat: {year: 'numeric', month: 'long', day: 'numeric'}, // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting // On a utilisé momentPlugin pour formatter la date comme ca: '{MMMM {D}}, YYYY 
-        slotLabelFormat: { hour: '2-digit', minute: 'numeric', hour12: false }, // 
+        slotLabelFormat: { hour: '2-digit', minute: 'numeric', hour12: false }, 
+        slotLabelInterval: '01:00:00', // L'intervalle à laquelle les étiquettes de créneau sont affichées sur l'axe du temps.
+        slotDuration: '00:30:00', // La durée de chaque créneau horaire dans la timeline
       },
 
       resourceTimelineWeek: { // Nom de la vue affectée par les options ci dessous
@@ -102,9 +104,6 @@ export class CalendarComponent {
     // Date & Time Display https://fullcalendar.io/docs/date-display
     nowIndicator: true, // https://fullcalendar.io/docs/now-indicator Affiche un indicateur pour le moment actuel sur la timeline.
     scrollTime: '08:00:00', // L'heure à laquelle le calendrier se positionnera au chargement.
-    slotLabelInterval: '01:00:00', // L'intervalle à laquelle les étiquettes de créneau sont affichées sur l'axe du temps.
-    slotDuration: '24:00:00', // La durée de chaque créneau horaire dans la timeline (ex : '00:30:00' pour 30 minutes).
-    slotMinWidth: 10, // Determines how wide each of the time-axis slots will be. Specified as a number of pixels.
 
     // Resources properties https://fullcalendar.io/docs/resource-data
     resourceGroupField: 'groupId', // Visually groups resources by certain criteria.
