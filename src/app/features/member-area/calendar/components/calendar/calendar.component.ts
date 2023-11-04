@@ -24,20 +24,21 @@ export class CalendarComponent {
       resourceTimeGridPlugin,
       resourceTimelinePlugin,
     ],
-    events: [ 
+    events: [ // Shits
+    // Doc générale event? https://fullcalendar.io/docs/event-model
     // https://fullcalendar.io/docs/event-object
       { title: 'Événement statique 1', start: '2023-11-10' },
       { title: 'Événement statique 2', start: '2023-11-12', end: '2023-11-15' }
     ],
     eventSources: [ 
-    // https://fullcalendar.io/docs/event-source-object
+    // https://fullcalendar.io/docs/event-source
       [
         {
           googleCalendarId: 'abcd1234@group.calendar.google.com'
         }
       ]
     ],
-    resources: [ 
+    resources: [ // Employees
     // https://fullcalendar.io/docs/resource-data
       {
         id: '1',
@@ -105,7 +106,7 @@ export class CalendarComponent {
     slotDuration: '24:00:00', // La durée de chaque créneau horaire dans la timeline (ex : '00:30:00' pour 30 minutes).
     slotMinWidth: 10, // Determines how wide each of the time-axis slots will be. Specified as a number of pixels.
 
-    // Resources properties
+    // Resources properties https://fullcalendar.io/docs/resource-data
     resourceGroupField: 'groupId', // Visually groups resources by certain criteria.
     resourceAreaWidth: "10%", // Determines the width of the area that contains the list of resources.
 
