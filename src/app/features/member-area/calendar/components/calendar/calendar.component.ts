@@ -27,8 +27,8 @@ export class CalendarComponent {
     events: [ // Shits
     // Doc générale event? https://fullcalendar.io/docs/event-model
     // https://fullcalendar.io/docs/event-object
-      { title: 'Événement statique 1', start: '2023-11-10' },
-      { title: 'Événement statique 2', start: '2023-11-12', end: '2023-11-15' }
+      { title: 'Événement statique 1', start: '2023-11-04', resourceId: '1' },
+      { title: 'Événement statique 2', start: '2023-11-03', end: '2023-11-15', resourceId: '1' }
     ],
     eventSources: [ 
     // https://fullcalendar.io/docs/event-source
