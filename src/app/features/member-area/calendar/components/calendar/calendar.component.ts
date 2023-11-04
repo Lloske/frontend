@@ -27,8 +27,10 @@ export class CalendarComponent {
     events: [ // Shits
     // Doc générale event? https://fullcalendar.io/docs/event-model
     // https://fullcalendar.io/docs/event-object
-      { title: 'Événement statique 1', start: '2023-11-04', resourceId: '1' },
-      { title: 'Événement statique 2', start: '2023-11-03', end: '2023-11-15', resourceId: '1' }
+      { title: '', start: '2023-11-03T06:30', end: '2023-11-03T14:30', resourceId: '1' },
+      { title: '', start: '2023-11-04T12:00', end: '2023-11-04T19:00', resourceId: '1' },
+      { title: '', start: '2023-11-04T12:00', end: '2023-11-04T19:00', resourceId: '2' },
+      { title: '', start: '2023-11-03T06:30', end: '2023-11-03T14:30', resourceId: '2' }
     ],
     eventSources: [ 
     // https://fullcalendar.io/docs/event-source
@@ -92,6 +94,27 @@ export class CalendarComponent {
       resourceTimelineMonth: { // Nom de la vue affectée par les options ci dessous
         titleFormat: { year: 'numeric', month: 'long', day: '2-digit' } // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting
       }
+    },
+    eventContent: function(arg) {
+      // Créer un élément pour le titre avec les heures de début et de fin
+      let titleElement = document.createElement('div');
+      titleElement.classList.add('fc-event-title');
+  
+      // Formater les heures de début et de fin
+      let startTime = arg.event.start ? arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) : '';
+      let endTime = arg.event.end ? arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) : '';
+  
+      // Construire le titre avec les heures de début et de fin
+      titleElement.innerHTML = startTime + ' - ' + endTime;
+  
+      // Créer le conteneur pour le contenu de l'événement
+      let arrayOfDomNodes = [];
+      let containerElement = document.createElement('div');
+      containerElement.appendChild(titleElement);
+      arrayOfDomNodes.push(containerElement);
+  
+      // Retourner le contenu personnalisé de l'événement
+      return { domNodes: arrayOfDomNodes };
     },
 
     // Generals
