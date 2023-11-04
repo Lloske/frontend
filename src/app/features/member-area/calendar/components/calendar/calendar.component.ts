@@ -16,26 +16,29 @@ import interactionPlugin from '@fullcalendar/interaction';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent {
-
+// Doc FullCalendar: https://fullcalendar.io/docs
   calendarOptions : CalendarOptions = {
-    plugins: [
+    plugins: [ 
+      // https://fullcalendar.io/docs/plugin-index
       dayGridPlugin,
       resourceTimeGridPlugin,
       resourceTimelinePlugin,
     ],
-    events: [ // https://fullcalendar.io/docs/event-object
+    events: [ 
+    // https://fullcalendar.io/docs/event-object
       { title: 'Événement statique 1', start: '2023-11-10' },
       { title: 'Événement statique 2', start: '2023-11-12', end: '2023-11-15' }
     ],
-    eventSources: [ // https://fullcalendar.io/docs/event-source-object
+    eventSources: [ 
+    // https://fullcalendar.io/docs/event-source-object
       [
         {
           googleCalendarId: 'abcd1234@group.calendar.google.com'
         }
       ]
     ],
-    // Ressources = employés
-    resources: [
+    resources: [ 
+    // https://fullcalendar.io/docs/resource-data
       {
         id: '1',
         groupId: 'Employés',
@@ -59,21 +62,20 @@ export class CalendarComponent {
         title: 'Ouvrier 2',
       },
     ],
-    // Toolbar
-    headerToolbar: {
+    headerToolbar: { 
+    // https://fullcalendar.io/docs/toolbar
       start: 'prev,title,next,today', 
       center: 'resourceTimeGridDay,resourceTimeGridWeek',
       end: 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
     },
-
-    // Permet d'appliquer des options spécifiques à certaines vues du calendrier https://fullcalendar.io/docs/view-specific-options
-    // Ou de créer nos propres custom views. https://fullcalendar.io/docs/custom-view-with-settings
     views: {
+    // https://fullcalendar.io/docs/view-specific-options & https://fullcalendar.io/docs/custom-view-with-settings
+
       resourceTimelineDay: { // Nom de la vue affectée par les options ci-dessous
         titleFormat: {year: 'numeric', month: 'long', day: 'numeric'}, // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting // On a utilisé momentPlugin pour formatter la date comme ca: '{MMMM {D}}, YYYY 
-        slotLabelFormat: { hour: '2-digit', minute: 'numeric', hour12: false },
-        // other view-specific options here
+        slotLabelFormat: { hour: '2-digit', minute: 'numeric', hour12: false }, // 
       },
+
       resourceTimelineWeek: { // Nom de la vue affectée par les options ci dessous
         titleFormat: { year: 'numeric', month: 'numeric', day: '2-digit' }, // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting
         
@@ -83,30 +85,32 @@ export class CalendarComponent {
         slotMinWidth: 10, // Determines how wide each of the time-axis slots will be. Specified as a number of pixels.
         slotLabelFormat: { day: '2-digit', weekday: 'short', month: 'short', hour12: false }, // Determines the text that will be displayed within a time slot. https://fullcalendar.io/docs/slotLabelFormat
       },
+
       resourceTimelineMonth: { // Nom de la vue affectée par les options ci dessous
         titleFormat: { year: 'numeric', month: 'long', day: '2-digit' } // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting
-        // other view-specific options here
       }
     },
 
     // Generals
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
-    initialView: 'resourceTimelineWeek',
-    firstDay: 1, // Faire commencer la semaine le lundi
-    locale: frLocale, // Utiliser la locale française
+    initialView: 'resourceTimelineWeek', // Vue initialement chargée
 
-    // Slot properties
-    slotLabelInterval: '01:00:00',// L'intervalle à laquelle les étiquettes de créneau sont affichées sur l'axe du temps.
+    // Localisation https://fullcalendar.io/docs/localization 
+    locale: frLocale, // Utiliser la locale française 
+    
+    // Date & Time Display https://fullcalendar.io/docs/date-display
+    nowIndicator: true, // https://fullcalendar.io/docs/now-indicator Affiche un indicateur pour le moment actuel sur la timeline.
+    scrollTime: '08:00:00', // L'heure à laquelle le calendrier se positionnera au chargement.
+    slotLabelInterval: '01:00:00', // L'intervalle à laquelle les étiquettes de créneau sont affichées sur l'axe du temps.
     slotDuration: '24:00:00', // La durée de chaque créneau horaire dans la timeline (ex : '00:30:00' pour 30 minutes).
     slotMinWidth: 10, // Determines how wide each of the time-axis slots will be. Specified as a number of pixels.
-
-    // Diverse
-    scrollTime: '08:00:00', // L'heure à laquelle le calendrier se positionnera au chargement.
-    nowIndicator: true, // Affiche un indicateur pour le moment actuel sur la timeline.
 
     // Resources properties
     resourceGroupField: 'groupId', // Visually groups resources by certain criteria.
     resourceAreaWidth: "10%", // Determines the width of the area that contains the list of resources.
+
+
+
 
     /* A creuser:
     * resourceOrder: Contrôle l'ordre dans lequel les ressources sont affichées.
