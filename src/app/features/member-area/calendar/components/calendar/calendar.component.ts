@@ -22,15 +22,17 @@ export class CalendarComponent {
       dayGridPlugin,
       resourceTimeGridPlugin,
       resourceTimelinePlugin,
-      // momentPlugin,
     ],
-    // Events = horaire/personne
-    events: [
-      {
-        id: 'a',
-        title: 'my event',
-        start: '2023-11-03'
-      }
+    events: [ // https://fullcalendar.io/docs/event-object
+      { title: 'Événement statique 1', start: '2023-11-10' },
+      { title: 'Événement statique 2', start: '2023-11-12', end: '2023-11-15' }
+    ],
+    eventSources: [ // https://fullcalendar.io/docs/event-source-object
+      [
+        {
+          googleCalendarId: 'abcd1234@group.calendar.google.com'
+        }
+      ]
     ],
     // Ressources = employés
     resources: [
@@ -90,6 +92,8 @@ export class CalendarComponent {
     // Generals
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
     initialView: 'resourceTimelineWeek',
+    firstDay: 1, // Faire commencer la semaine le lundi
+    locale: frLocale, // Utiliser la locale française
 
     // Slot properties
     slotLabelInterval: '01:00:00',// L'intervalle à laquelle les étiquettes de créneau sont affichées sur l'axe du temps.
