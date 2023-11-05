@@ -7,7 +7,7 @@ import resourceTimelinePlugin from '@fullcalendar/resource-timeline';
 import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale française
 // import timeGridPlugin from '@fullcalendar/timegrid'
 // import resourceDayGridPlugin from '@fullcalendar/resource-daygrid';
-// import interactionPlugin from '@fullcalendar/interaction';
+import interactionPlugin from '@fullcalendar/interaction';
 
 
 @Component({
@@ -23,14 +23,15 @@ export class CalendarComponent {
       dayGridPlugin,
       resourceTimeGridPlugin,
       resourceTimelinePlugin,
+      interactionPlugin,
     ],
     events: [ // Shits
     // Doc générale event? https://fullcalendar.io/docs/event-model
     // https://fullcalendar.io/docs/event-object
-      { title: '', start: '2023-11-03T06:30', end: '2023-11-03T14:30', resourceId: '1' },
-      { title: '', start: '2023-11-04T12:00', end: '2023-11-04T19:00', resourceId: '1' },
-      { title: '', start: '2023-11-04T12:00', end: '2023-11-04T19:00', resourceId: '2' },
-      { title: '', start: '2023-11-03T06:30', end: '2023-11-03T14:30', resourceId: '2' }
+      { title: '', start: '2023-11-03T06:30', end: '2023-11-03T14:30', resourceId: '1'},
+      { title: '', start: '2023-11-04T06:30', end: '2023-11-04T14:30', resourceId: '1'},
+      { title: '', start: '2023-11-03T12:00', end: '2023-11-03T19:00', resourceId: '2'},
+      { title: '', start: '2023-11-04T12:00', end: '2023-11-04T19:00', resourceId: '2'}
     ],
     eventSources: [ 
     // https://fullcalendar.io/docs/event-source
@@ -95,7 +96,7 @@ export class CalendarComponent {
         titleFormat: { year: 'numeric', month: 'long', day: '2-digit' } // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting
       }
     },
-    eventContent: function(arg) {
+    eventContent: function(arg) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
       // Créer un élément pour le titre avec les heures de début et de fin
       let titleElement = document.createElement('div');
       titleElement.classList.add('fc-event-title');
@@ -120,6 +121,7 @@ export class CalendarComponent {
     // Generals
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
     initialView: 'resourceTimelineWeek', // Vue initialement chargée
+    editable: true,
 
     // Localisation https://fullcalendar.io/docs/localization 
     locale: frLocale, // Utiliser la locale française 
