@@ -8,6 +8,8 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 // import timeGridPlugin from '@fullcalendar/timegrid'
 // import resourceDayGridPlugin from '@fullcalendar/resource-daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
+//Bootstrap
+import bootstrap5Plugin from '@fullcalendar/bootstrap5';
 
 
 @Component({
@@ -24,6 +26,7 @@ export class CalendarComponent {
       resourceTimeGridPlugin,
       resourceTimelinePlugin,
       interactionPlugin,
+      bootstrap5Plugin,
     ],
     events: [ // Shits
     // Doc générale event? https://fullcalendar.io/docs/event-model
@@ -103,6 +106,7 @@ export class CalendarComponent {
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
     initialView: 'resourceTimelineWeek', // Vue initialement chargée
     editable: true,
+    themeSystem: 'Bootstrap5',
 
     // Localisation https://fullcalendar.io/docs/localization 
     locale: frLocale, // Utiliser la locale française 
@@ -158,7 +162,7 @@ export class CalendarComponent {
     // Vous pouvez maintenant accéder à l'objet de l'événement via arg.event
     // et faire ce que vous voulez, par exemple :
     alert('Event clicked: ' + arg.event.title);
-    this.test()
+
   }
 }
 
