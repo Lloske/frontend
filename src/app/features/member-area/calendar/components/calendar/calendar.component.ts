@@ -96,27 +96,8 @@ export class CalendarComponent {
         titleFormat: { year: 'numeric', month: 'long', day: '2-digit' } // Permet de formater la date du 'title' affiché dans le 'headerToolbar'. https://fullcalendar.io/docs/date-formatting
       }
     },
-    eventContent: function(arg) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
-      // Créer un élément pour le titre avec les heures de début et de fin
-      let titleElement = document.createElement('div');
-      titleElement.classList.add('fc-event-title');
-  
-      // Formater les heures de début et de fin
-      let startTime = arg.event.start ? arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) : '';
-      let endTime = arg.event.end ? arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) : '';
-  
-      // Construire le titre avec les heures de début et de fin
-      titleElement.innerHTML = startTime + ' - ' + endTime;
-  
-      // Créer le conteneur pour le contenu de l'événement
-      let arrayOfDomNodes = [];
-      let containerElement = document.createElement('div');
-      containerElement.appendChild(titleElement);
-      arrayOfDomNodes.push(containerElement);
-  
-      // Retourner le contenu personnalisé de l'événement
-      return { domNodes: arrayOfDomNodes };
-    },
+    eventContent: this.createEventTitleWithTime.bind(this), 
+    eventClick: this.handleEventClick.bind(this),
 
     // Generals
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
@@ -152,5 +133,32 @@ export class CalendarComponent {
     */
 
   }
-  
+  createEventTitleWithTime (arg: any) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
+    // Créer un élément pour le titre avec les heures de début et de fin
+    let titleElement = document.createElement('div');
+    titleElement.classList.add('fc-event-title');
+
+    // Formater les heures de début et de fin
+    let startTime = arg.event.start ? arg.event.start.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) : '';
+    let endTime = arg.event.end ? arg.event.end.toLocaleTimeString([], {hour: '2-digit', minute: '2-digit'}) : '';
+
+    // Construire le titre avec les heures de début et de fin
+    titleElement.innerHTML = startTime + ' - ' + endTime;
+
+    // Créer le conteneur pour le contenu de l'événement
+    let arrayOfDomNodes = [];
+    let containerElement = document.createElement('div');
+    containerElement.appendChild(titleElement);
+    arrayOfDomNodes.push(containerElement);
+
+    // Retourner le contenu personnalisé de l'événement
+    return { domNodes: arrayOfDomNodes };
+  }
+  handleEventClick(arg: any) {
+    // Vous pouvez maintenant accéder à l'objet de l'événement via arg.event
+    // et faire ce que vous voulez, par exemple :
+    alert('Event clicked: ' + arg.event.title);
+    this.test()
+  }
 }
+
