@@ -7,6 +7,8 @@ import { CalendarComponent } from './calendar/components/calendar/calendar.compo
 import { NavbarMemberComponent } from './shared-member/navbar-member/navbar-member.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
+import { AddEventModalComponent } from './calendar/components/modal/add-event-modal/add-event-modal.component';
+import { UpdateEventModalComponent } from './calendar/components/modal/update-event-modal/update-event-modal.component';
 
 /* Instructions pour créer un nouveau module :
  * 
@@ -27,6 +29,8 @@ import { FullCalendarModule } from '@fullcalendar/angular';
     MemberAreaComponent,
     CalendarComponent,
     NavbarMemberComponent,
+    AddEventModalComponent,
+    UpdateEventModalComponent,
   ],
   imports: [
     CommonModule,

@@ -101,12 +101,13 @@ export class CalendarComponent {
     },
     eventContent: this.createEventTitleWithTime.bind(this), 
     eventClick: this.handleEventClick.bind(this),
+    dateClick: this.handleDateClick.bind(this),
 
     // Generals
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
     initialView: 'resourceTimelineWeek', // Vue initialement chargée
     editable: true,
-    themeSystem: 'Bootstrap5',
+    themeSystem: 'Bootstrap5', // https://fullcalendar.io/docs/themeSystem
 
     // Localisation https://fullcalendar.io/docs/localization 
     locale: frLocale, // Utiliser la locale française 
@@ -163,6 +164,10 @@ export class CalendarComponent {
     // et faire ce que vous voulez, par exemple :
     alert('Event clicked: ' + arg.event.title);
 
+  }
+  handleDateClick (arg: any){
+    alert('Clicked on: ' + arg.dateStr);
+    // Mettre l'affichage de la modale
   }
 }
 
