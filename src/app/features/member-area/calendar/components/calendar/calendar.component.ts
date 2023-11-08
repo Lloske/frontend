@@ -138,6 +138,8 @@ export class CalendarComponent {
     */
 
   }
+  isHidden: boolean = true;
+
   createEventTitleWithTime (arg: any) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
     // Créer un élément pour le titre avec les heures de début et de fin
     let titleElement = document.createElement('div');
@@ -163,13 +165,11 @@ export class CalendarComponent {
     // Vous pouvez maintenant accéder à l'objet de l'événement via arg.event
     // et faire ce que vous voulez, par exemple :
     alert('Event clicked: ' + arg.event.title);
-
+    this.isHidden = !this.isHidden
   }
   handleDateClick (arg: any){
     alert('Clicked on: ' + arg.dateStr);
-    // this.dateClicked = !this.dateClicked
-    // console.log(this.dateClicked); 
-    // Mettre l'affichage de la modale
+    this.isHidden = !this.isHidden
   }
 
   // Not Full Calendar Stuff
