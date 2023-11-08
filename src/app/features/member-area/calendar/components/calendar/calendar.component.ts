@@ -167,7 +167,12 @@ export class CalendarComponent {
   }
   handleDateClick (arg: any){
     alert('Clicked on: ' + arg.dateStr);
+    // this.dateClicked = !this.dateClicked
+    // console.log(this.dateClicked); 
     // Mettre l'affichage de la modale
   }
+
+  // Not Full Calendar Stuff
+  dateClicked : boolean = true;
 }
 
