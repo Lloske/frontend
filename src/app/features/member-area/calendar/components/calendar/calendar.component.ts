@@ -171,5 +171,8 @@ export class CalendarComponent {
     alert('Clicked on: ' + arg.dateStr);
     this.isHidden = !this.isHidden
   }
+
+  // Not Full Calendar Stuff
+  dateClicked : boolean = true;
 }
 
