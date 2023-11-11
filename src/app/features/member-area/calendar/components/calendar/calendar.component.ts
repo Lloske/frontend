@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { Component, ElementRef, ViewChild } from '@angular/core';
+=======
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+>>>>>>> 4bc0182de4dff23ea5b02f1da0ce0746b2c54556
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid'; // @fullcalendar/daygrid Offers Month and DayGrid views: dayGridYear, dayGridMonth, dayGridWeek, dayGridDay, dayGrid (generic) 
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
@@ -10,8 +14,12 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 import interactionPlugin from '@fullcalendar/interaction';
 //Bootstrap
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+<<<<<<< HEAD
 import { Modal } from 'bootstrap';
 
+=======
+import * as bootstrap from 'bootstrap';
+>>>>>>> 4bc0182de4dff23ea5b02f1da0ce0746b2c54556
 
 
 @Component({
@@ -19,6 +27,7 @@ import { Modal } from 'bootstrap';
   templateUrl: './calendar.component.html',
   styleUrls: ['./calendar.component.scss']
 })
+<<<<<<< HEAD
 export class CalendarComponent {
 
 
@@ -43,6 +52,12 @@ export class CalendarComponent {
   Habituellement, vous accédez à votre ViewChild dans le hook de cycle de vie ngAfterViewInit() qui est appelé après l'initialisation de la vue du composant.
 */
 
+=======
+export class CalendarComponent implements OnInit {
+  ngOnInit(): void {
+    this.closeModal()
+  }
+>>>>>>> 4bc0182de4dff23ea5b02f1da0ce0746b2c54556
 // Doc FullCalendar: https://fullcalendar.io/docs
   calendarOptions : CalendarOptions = {
     plugins: [ 
@@ -163,8 +178,25 @@ export class CalendarComponent {
   */
 
   }
+<<<<<<< HEAD
   
+=======
+>>>>>>> 4bc0182de4dff23ea5b02f1da0ce0746b2c54556
 
+  // Modal Stuff
+  
+  @ViewChild('exampleModal') modalElement!: ElementRef;
+
+  isHidden: boolean = true;
+  
+  openModal() {
+    const modal = new bootstrap.Modal(this.modalElement.nativeElement);
+    modal.show();
+  }
+  closeModal() {
+    const modal = new bootstrap.Modal(this.modalElement.nativeElement);
+    modal.hide();
+  }
   createEventTitleWithTime (arg: any) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
     // Créer un élément pour le titre avec les heures de début et de fin
     let titleElement = document.createElement('div');
@@ -190,11 +222,12 @@ export class CalendarComponent {
     // Vous pouvez maintenant accéder à l'objet de l'événement via arg.event
     // et faire ce que vous voulez, par exemple :
     alert('Event clicked: ' + arg.event.title);
-    this.isHidden = !this.isHidden
+    this.openModal();
   }
   handleDateClick (arg: any){
     alert('Clicked on: ' + arg.dateStr);
-    this.isHidden = !this.isHidden
+    // this.isHidden = !this.isHidden
+    this.openModal()
   }
 
   // Modal stuff
