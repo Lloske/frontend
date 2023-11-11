@@ -1,18 +1,30 @@
 <p>add-event-modal works!</p>
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
+<form [formGroup]="addEventForm" (ngSubmit)="onSubmit()" >
+
+<!-- Remplacer le bloc en commentaire par un selection automatique de la date en fonction du jour cliqué -->
+  <label for="shiftStartDate">Heure de début</label>
+  <input id="shiftStartDate" type="date" formControlName="shiftStartDate" >
+  <label for="shiftEndDate">Heure de fin</label>
+  <input id="shiftEndDate" type="date" formControlName="shiftEndDate" >
+<!-- Remplacer le bloc en commentaire par un selection automatique de la date en fonction du jour cliqué -->
+
+  <label for="shiftStartTime">Heure de début</label>
+  <input id="shiftStartTime" type="time" formControlName="shiftStartTime" >
+
+  <label for="shiftEndTime">Heure de fin</label>
+  <input id="shiftEndTime" type="time" formControlName="shiftEndTime" >
+
+  <label for="shiftPause">Temps de pause</label>
+  <input id="shiftPause" type="time" formControlName="shiftPause" >
+
+  <label for="shiftTeam">Poste</label>
+  <input id="shiftTeam" type="search" formControlName="shiftTeam" >
+
+  <label for="shiftMeal">Repas</label>
+  <input id="shiftMeal" type="number" formControlName="shiftMeal" >
+  
+  <label for="shiftNote">Note</label>
+  <input id="shiftNote" type="text" formControlName="shiftNote" >
+
+  <button type="submit"></button>
+</form>
