@@ -161,6 +161,11 @@ export class CalendarComponent implements OnInit {
   / }
   */
 
+  // Button add shift
+  isUserClicked : boolean = false
+  UserClicked(){
+    this.isUserClicked = !this.isUserClicked
+  }
 
   createEventTitleWithTime (arg: any) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
     // Créer un élément pour le titre avec les heures de début et de fin

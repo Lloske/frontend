@@ -24,7 +24,6 @@ export class AddEventModalComponent {
       shiftNote: [""],
     })
   }
-
   onSubmit(){
     console.log(this.addEventForm.value);    
   }

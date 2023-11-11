@@ -1,5 +1,9 @@
 <div class="component">
   <p>CALENDAR-component</p>
-  <button>Add Shift</button>
+  <button (click)="UserClicked()">Add Shift</button>
+  <div *ngIf="isUserClicked">
+    <!-- <app-add-event-modal></app-add-event-modal> -->
+  </div>
+
   <full-calendar [options]="calendarOptions"></full-calendar>
 </div>
