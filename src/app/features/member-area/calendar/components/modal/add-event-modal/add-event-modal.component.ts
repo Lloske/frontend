@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-event-modal',
@@ -8,18 +8,22 @@ import { FormBuilder } from '@angular/forms';
 })
 export class AddEventModalComponent {
 
-  constructor(private formBuilder: FormBuilder) {}
+  addEventForm: FormGroup;
 
-  addEventForm = this.formBuilder.group({
-    shiftStartDate: [""], // Remplacer l'input html par un selecteur automatique
-    shiftEndDate: [""], // Remplacer l'input html par un selecteur automatique
-    shiftStartTime: [""],
-    shiftendTime: [""],
-    shiftPause: [""],
-    shiftTeam: [""],
-    shiftMeal: [""],
-    shiftNote: [""],
-  })
+  constructor(private _formBuilder: FormBuilder) {
+    this.addEventForm = this._formBuilder.group({
+      //nomControl : [value, [validateurs synchrones] , [validateurs asynchrones]]
+      //[null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
+      shiftStartDate: [""], // Remplacer l'input html par un selecteur automatique
+      shiftEndDate: [""], // Remplacer l'input html par un selecteur automatique
+      shiftStartTime: [""],
+      shiftEndTime: [""],
+      shiftPause: [""],
+      shiftTeam: [""],
+      shiftMeal: [""],
+      shiftNote: [""],
+    })
+  }
 
   onSubmit(){
     console.log(this.addEventForm.value);    
