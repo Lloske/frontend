@@ -24,6 +24,4 @@ export class AddEventModalComponent {
   onSubmit(){
     console.log(this.addEventForm.value);    
   }
-
-
 }
