@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid'; // @fullcalendar/daygrid Offers Month and DayGrid views: dayGridYear, dayGridMonth, dayGridWeek, dayGridDay, dayGrid (generic) 
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
@@ -10,6 +10,8 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 import interactionPlugin from '@fullcalendar/interaction';
 //Bootstrap
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+import { Modal } from 'bootstrap';
+
 
 
 @Component({
@@ -18,6 +20,29 @@ import bootstrap5Plugin from '@fullcalendar/bootstrap5';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent {
+
+
+@ViewChild('modal') modalElement!: ElementRef; 
+/* @ViewChild pour selectionner la modal dans le dom
+  ViewChild est un décorateur dans le framework Angular qui permet à votre classe de composant d'accéder à un élément enfant dans votre template. 
+  Cet élément enfant peut être un autre composant Angular, une directive ou même un élément DOM natif. 
+  En gros, ViewChild vous permet de "chercher" dans votre vue pour obtenir une référence directe à cet élément ou à cette classe.
+
+  Sélection de l'élément (ici ElementRef)
+  Vous pouvez sélectionner l'élément ou le composant enfant de différentes manières :
+    Par le sélecteur de classe du composant ou de la directive.
+    Par une référence locale dans le template (par exemple, en utilisant #myElement).
+    Par le type de l'élément natif (comme ElementRef pour les éléments DOM).
+  
+  Accès à l'instance
+  Une fois que vous avez mis en place ViewChild, vous obtenez l'accès à l'instance de l'élément ou du composant. 
+  Cela signifie que vous pouvez appeler des méthodes sur cet élément, accéder à ses propriétés, ou même écouter ses événements.
+
+  Temps d'accès
+  La référence à l'élément n'est disponible qu'après qu'Angular ait terminé de traiter la vue. Cela signifie que vous ne pouvez pas y accéder dans le constructeur de votre classe de composant. 
+  Habituellement, vous accédez à votre ViewChild dans le hook de cycle de vie ngAfterViewInit() qui est appelé après l'initialisation de la vue du composant.
+*/
+
 // Doc FullCalendar: https://fullcalendar.io/docs
   calendarOptions : CalendarOptions = {
     plugins: [ 
@@ -123,7 +148,7 @@ export class CalendarComponent {
 
 
 
-    /* A creuser:
+  /* A creuser:
     * resourceOrder: Contrôle l'ordre dans lequel les ressources sont affichées.
     * selectHelper: Un composant d'assistance s'affiche lors de la sélection des créneaux horaires.
     * editable: Permet de déplacer et de redimensionner les événements.
@@ -135,10 +160,10 @@ export class CalendarComponent {
     * eventResize: Un callback pour quand un événement est redimensionné.
     * eventRender: Un callback pour personnaliser le rendu d'un événement.
     * resourceRender: Un callback pour personnaliser le rendu d'une ressource.
-    */
+  */
 
   }
-  isHidden: boolean = true;
+  
 
   createEventTitleWithTime (arg: any) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
     // Créer un élément pour le titre avec les heures de début et de fin
@@ -171,6 +196,21 @@ export class CalendarComponent {
     alert('Clicked on: ' + arg.dateStr);
     this.isHidden = !this.isHidden
   }
+
+  // Modal stuff
+  isHidden: boolean = true; // Booléen de controle d'ouverture de modal
+
+
+  openModal() {
+    const modal = new Modal(this.modalElement.nativeElement);
+    modal.show();
+  }
+  
+  closeModal() {
+    const modal = new Modal(this.modalElement.nativeElement);
+    modal.hide();
+  }
+  
 
   // Not Full Calendar Stuff
   dateClicked : boolean = true;
