@@ -20,6 +20,8 @@ import { UpdateEventModalComponent } from './update-event-modal/update-event-mod
     ReactiveFormsModule
   ],
   exports: [
+    AddEventModalComponent,
+    UpdateEventModalComponent
   ]
 })
 export class ModalModule { }

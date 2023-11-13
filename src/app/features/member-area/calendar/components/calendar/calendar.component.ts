@@ -10,9 +10,7 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 import interactionPlugin from '@fullcalendar/interaction';
 //Bootstrap
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
-import { Modal } from 'bootstrap';
 
-import * as bootstrap from 'bootstrap';
 
 
 @Component({

@@ -35,6 +35,7 @@ import { ModalModule } from './calendar/components/modal/modal.module';
     CommonModule,
     MemberAreaRoutingModule,
     FullCalendarModule,
+    ModalModule,
   ], 
   bootstrap:[MemberAreaComponent]
 })
