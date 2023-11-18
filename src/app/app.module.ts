@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { PublicAreaModule } from './features/public-area/public-area.module';
 import { MemberAreaModule } from './features/member-area/member-area.module';
 import { AdminAreaModule } from './features/admin-area/admin-area.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -33,7 +34,8 @@ import { AdminAreaModule } from './features/admin-area/admin-area.module';
     PublicAreaModule,
     MemberAreaModule,
     AdminAreaModule,
-    SharedModule
+    SharedModule,
+    NgbModule
   ],
   // 'providers' déclare les services disponibles dans toute l'application (injecteur racine).
   providers: [],
