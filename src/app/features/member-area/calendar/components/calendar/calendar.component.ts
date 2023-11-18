@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid'; // @fullcalendar/daygrid Offers Month and DayGrid views: dayGridYear, dayGridMonth, dayGridWeek, dayGridDay, dayGrid (generic) 
 import resourceTimeGridPlugin from '@fullcalendar/resource-timegrid';
@@ -10,6 +10,7 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 import interactionPlugin from '@fullcalendar/interaction';
 //Bootstrap
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
+import { ModalService } from '../../services/modal.service';
 
 
 
@@ -19,8 +20,13 @@ import bootstrap5Plugin from '@fullcalendar/bootstrap5';
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
+
+  @ViewChild('content') content!: TemplateRef<any>;
+
+  constructor(private _modalService : ModalService){
+
+  }
   ngOnInit(): void {
-    // this.closeModal()
   }
 // Doc FullCalendar: https://fullcalendar.io/docs
   calendarOptions : CalendarOptions = {
@@ -143,22 +149,6 @@ export class CalendarComponent implements OnInit {
 
   }
 
-  /*/ Modal Stuff
-  
-  // @ViewChild('exampleModal') modalElement!: ElementRef;
-
-  // isHidden: boolean = true;
-  
-  // openModal() {
-  //   const modal = new bootstrap.Modal(this.modalElement.nativeElement);
-  //   modal.show();
-  // }
-  // closeModal() {
-  //   const modal = new bootstrap.Modal(this.modalElement.nativeElement);
-  //   modal.hide();
-  / }
-  */
-
   // Button add shift
   isUserClicked : boolean = false
   UserClicked(){
@@ -189,12 +179,14 @@ export class CalendarComponent implements OnInit {
   handleEventClick(arg: any) {
     // Vous pouvez maintenant accéder à l'objet de l'événement via arg.event
     // et faire ce que vous voulez, par exemple :
-    alert('Event clicked: ' + arg.event.title);
+    // alert('Event clicked: ' + arg.event.title);
     // this.openModal();
+    this._modalService.open(this.content)
   }
   handleDateClick (arg: any){
-    alert('Clicked on: ' + arg.dateStr);
+    // alert('Clicked on: ' + arg.dateStr);
     // this.openModal()
+    this._modalService.open(this.content)
   }
 }
 
