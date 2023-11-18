@@ -21,11 +21,10 @@ import { ModalService } from '../../services/modal.service';
 })
 export class CalendarComponent implements OnInit {
 
-  @ViewChild('content') content!: TemplateRef<any>;
+  @ViewChild('content') content!: TemplateRef<any>; // Pour selectionner la modale qui porte l'attribut #content dans le HTML
 
-  constructor(private _modalService : ModalService){
+  constructor(private _modalService : ModalService){}
 
-  }
   ngOnInit(): void {
   }
 // Doc FullCalendar: https://fullcalendar.io/docs
@@ -177,15 +176,9 @@ export class CalendarComponent implements OnInit {
     return { domNodes: arrayOfDomNodes };
   }
   handleEventClick(arg: any) {
-    // Vous pouvez maintenant accéder à l'objet de l'événement via arg.event
-    // et faire ce que vous voulez, par exemple :
-    // alert('Event clicked: ' + arg.event.title);
-    // this.openModal();
     this._modalService.open(this.content)
   }
   handleDateClick (arg: any){
-    // alert('Clicked on: ' + arg.dateStr);
-    // this.openModal()
     this._modalService.open(this.content)
   }
 }
