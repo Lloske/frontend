@@ -8,6 +8,10 @@ import { RegisterComponent } from './register/register.component';
 import { PublicAreaComponent } from './public-area.component';
 import { NavbarPublicComponent } from './shared-public/navbar-public/navbar-public.component';
 
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PricingComponent } from './pricing/pricing.component'; // Pour la nav-bar public
+
 /* Instructions pour créer un nouveau module :
  * 
  * 1. Se positionner dans le dossier parent du nouveau module.
@@ -29,10 +33,12 @@ import { NavbarPublicComponent } from './shared-public/navbar-public/navbar-publ
     RegisterComponent,
     PublicAreaComponent,
     NavbarPublicComponent,
+    PricingComponent,
   ],
   imports: [
     CommonModule,
-    PublicAreaRoutingModule
+    PublicAreaRoutingModule,
+    NgbModule
   ]
 })
 export class PublicAreaModule { }

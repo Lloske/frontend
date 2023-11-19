@@ -7,8 +7,6 @@ import { CalendarComponent } from './calendar/components/calendar/calendar.compo
 import { NavbarMemberComponent } from './shared-member/navbar-member/navbar-member.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { AddEventModalComponent } from './calendar/components/modal/add-event-modal/add-event-modal.component';
-import { UpdateEventModalComponent } from './calendar/components/modal/update-event-modal/update-event-modal.component';
 import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -31,14 +29,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     MemberAreaComponent,
     CalendarComponent,
     NavbarMemberComponent,
-    AddEventModalComponent,
-    UpdateEventModalComponent,
   ],
   imports: [
     CommonModule,
     MemberAreaRoutingModule,
     FullCalendarModule,
-    NgbDatepickerModule, //Pour modale bootstrap
+    NgbDatepickerModule, //Pour modal bootstrap
     ReactiveFormsModule
 
   ], 

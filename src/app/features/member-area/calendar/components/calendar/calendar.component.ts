@@ -10,7 +10,8 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 import interactionPlugin from '@fullcalendar/interaction';
 //Bootstrap
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
-import { ModalService } from '../../services/modal.service';
+// Modal bootstrap
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 
 
@@ -23,7 +24,7 @@ export class CalendarComponent implements OnInit {
 
   @ViewChild('content') content!: TemplateRef<any>; // Pour selectionner la modale qui porte l'attribut #content dans le HTML
 
-  constructor(private _modalService : ModalService){}
+  constructor(private _modalService : NgbModal){}
 
   ngOnInit(): void {
   }
@@ -109,7 +110,7 @@ export class CalendarComponent implements OnInit {
       }
     },
     eventContent: this.createEventTitleWithTime.bind(this), 
-    eventClick: this.handleEventClick.bind(this),
+    eventClick: this.handleEventClick.bind(this), // .bind(this) : JavaScript a une particularité où la valeur de this dans une fonction peut changer selon la façon dont la fonction est appelée. Utiliser .bind(this) crée une nouvelle fonction avec this fixé à la valeur actuelle (dans ce cas, l'instance de CalendarComponent), peu importe comment la fonction est appelée plus tard. Cela garantit que lorsque FullCalendar appelle handleDateClick, this à l'intérieur de handleDateClick se réfère toujours à l'instance de CalendarComponent.
     dateClick: this.handleDateClick.bind(this),
 
     // Generals
@@ -147,12 +148,8 @@ export class CalendarComponent implements OnInit {
   */
 
   }
-
-  // Button add shift
-  isUserClicked : boolean = false
-  UserClicked(){
-    this.isUserClicked = !this.isUserClicked
-  }
+  // Modal Stuff
+  selectedEmployee : any
 
   createEventTitleWithTime (arg: any) { // !!!1!!*8!!----------  A REFAIRE  --------!1!!***8!!! RAJOUTER DUREE DU SHIFT! Fonction ChatGPT pour mettre l'heure à la place du titre de chaque event.
     // Créer un élément pour le titre avec les heures de début et de fin
@@ -176,10 +173,17 @@ export class CalendarComponent implements OnInit {
     return { domNodes: arrayOfDomNodes };
   }
   handleEventClick(arg: any) {
-    this._modalService.open(this.content)
+    let selectedEmployee = arg.ressource.title
+    console.log(selectedEmployee);    
+    this.openModal(this.content)
   }
   handleDateClick (arg: any){
-    this._modalService.open(this.content)
+    let selectedEmployee = arg.ressource.title
+    console.log(selectedEmployee);
+    this.openModal(this.content)
   }
+  openModal(content: TemplateRef<any>) {
+		this._modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+	}
 }
 

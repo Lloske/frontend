@@ -3,7 +3,7 @@
           <!-- Modale -->
             <ng-template #content let-modal>
               <div class="modal-header">
-                <h4 class="modal-title" id="modal-basic-title">Ajouter un shift de travail pour </h4>
+                <h4 class="modal-title" id="modal-basic-title">Ajouter un shift de travail pour {{selectedEmployee}}</h4>
                 <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
               </div>
               <div class="modal-body">
@@ -31,5 +31,10 @@
             
             <hr />
           <!-- Modale -->
-  <full-calendar [options]="calendarOptions"></full-calendar>
+          <full-calendar class="calendar" [options]="calendarOptions">
+            <!-- <ng-template #eventContent let-arg>
+              <b>{{arg.timeText}}</b>
+              <i>{{arg.event.title}}</i>
+            </ng-template> -->
+          </full-calendar>
 </div>
