@@ -7,6 +7,8 @@ import { PersonalDataComponent } from './personal-data/personal-data.component';
 import { ContractualDataComponent } from './contractual-data/contractual-data.component';
 import { HumanResourceComponent } from './human-resource/human-resource.component';
 import { SidebarEmployeesComponent } from './shared-employees/components/sidebar-employees/sidebar-employees.component';
+import { EmployeesComponent } from './employees.component';
+import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -15,17 +17,19 @@ import { SidebarEmployeesComponent } from './shared-employees/components/sidebar
     PersonalDataComponent,
     ContractualDataComponent,
     HumanResourceComponent,
-    SidebarEmployeesComponent
+    SidebarEmployeesComponent,
+    EmployeesComponent
   ],
   imports: [
     CommonModule,
-    EmployeesRoutingModule
+    EmployeesRoutingModule, 
+    NgbNavModule
   ],
   exports: [
-    NavbarEmployeesComponent,
-    PersonalDataComponent,
-    ContractualDataComponent,
-    HumanResourceComponent
+    // NavbarEmployeesComponent,
+    // PersonalDataComponent,
+    // ContractualDataComponent,
+    // HumanResourceComponent
   ]
 })
 export class EmployeesModule { }
