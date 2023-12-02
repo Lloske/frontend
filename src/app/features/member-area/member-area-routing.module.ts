@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CalendarComponent } from './calendar/components/calendar/calendar.component';
+import { ContractualDataComponent } from './employees/contractual-data/contractual-data.component';
 
 /* Création du routing-module
  * Ce `routing module` a été généré automatiquement par la commande :
@@ -15,6 +16,7 @@ const routes: Routes = [
   // Mettre un router outlet dans le .html afin de continuer à charger les routes enfant après un lazy loading.
   // Ne pas mettre de chemin vide car on a déja chargé le composant dans le routing parent (app-routing)
   { path : "calendar", component : CalendarComponent },
+  { path : "employees", component : ContractualDataComponent },
 ];
 
 

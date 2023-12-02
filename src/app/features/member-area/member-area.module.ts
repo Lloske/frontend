@@ -7,8 +7,12 @@ import { CalendarComponent } from './calendar/components/calendar/calendar.compo
 import { NavbarMemberComponent } from './shared-member/navbar-member/navbar-member.component';
 
 import { FullCalendarModule } from '@fullcalendar/angular';
-import { NgbDatepickerModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbDatepickerModule, NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ContractualDataComponent } from './employees/contractual-data/contractual-data.component';
+import { HumanResourceComponent } from './employees/human-resource/human-resource.component';
+import { PersonalDataComponent } from './employees/personal-data/personal-data.component';
+import { EmployeesModule } from './employees/employees.module';
 
 /* Instructions pour créer un nouveau module :
  * 
@@ -28,15 +32,16 @@ import { ReactiveFormsModule } from '@angular/forms';
   declarations: [
     MemberAreaComponent,
     CalendarComponent,
-    NavbarMemberComponent,
+    NavbarMemberComponent
   ],
   imports: [
     CommonModule,
     MemberAreaRoutingModule,
     FullCalendarModule,
     NgbDatepickerModule, //Pour modal bootstrap
-    ReactiveFormsModule
-
+    ReactiveFormsModule,
+    NgbNavModule, // Pour le routing dans la navbar ng-bootstrap
+    EmployeesModule, // Importe les composants (contractual data, human ressource ect) du module employees
   ], 
   bootstrap:[MemberAreaComponent]
 })
