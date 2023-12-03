@@ -9,6 +9,7 @@ import { HumanResourceComponent } from './human-resource/human-resource.componen
 import { SidebarEmployeesComponent } from './shared-employees/components/sidebar-employees/sidebar-employees.component';
 import { EmployeesComponent } from './employees.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
+import { SubnavbarEmployeesComponent } from './shared-employees/components/subnavbar-employees/subnavbar-employees.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
     ContractualDataComponent,
     HumanResourceComponent,
     SidebarEmployeesComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    SubnavbarEmployeesComponent
   ],
   imports: [
     CommonModule,

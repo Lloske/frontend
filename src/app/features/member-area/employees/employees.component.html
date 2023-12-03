@@ -7,7 +7,14 @@
             <app-sidebar-employees></app-sidebar-employees>   
         </div>
         <div class="col">
-          <router-outlet></router-outlet>
+            <div class="container-fluid">
+                <div class="row">
+                    <app-subnavbar-employees></app-subnavbar-employees>
+                </div>
+                <div class="row">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
         </div>
       </div>
   </div>

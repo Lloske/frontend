@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar-employees.component.scss']
 })
 export class NavbarEmployeesComponent {
-
+  active = 1;
 }
