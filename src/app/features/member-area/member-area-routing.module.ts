@@ -16,7 +16,7 @@ const routes: Routes = [
   // Mettre un router outlet dans le .html afin de continuer à charger les routes enfant après un lazy loading.
   // Ne pas mettre de chemin vide car on a déja chargé le composant dans le routing parent (app-routing)
   { path : "calendar", component : CalendarComponent },
-  { path : "employees", component : EmployeesComponent },
+  { path : "employees", component : EmployeesComponent, loadChildren : () => import("./employees/employees.module").then(m => m.EmployeesModule) },
 ];
 
 

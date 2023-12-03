@@ -10,6 +10,7 @@ import { SidebarEmployeesComponent } from './shared-employees/components/sidebar
 import { EmployeesComponent } from './employees.component';
 import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubnavbarEmployeesComponent } from './shared-employees/components/subnavbar-employees/subnavbar-employees.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { SubnavbarEmployeesComponent } from './shared-employees/components/subna
   imports: [
     CommonModule,
     EmployeesRoutingModule, 
-    NgbNavModule
+    NgbNavModule,
+    ReactiveFormsModule
   ],
   exports: [
     // NavbarEmployeesComponent,

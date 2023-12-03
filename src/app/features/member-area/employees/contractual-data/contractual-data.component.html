@@ -1,1 +1,58 @@
-<p>contractual-data works!</p>
+<p>Attention composant mis comme un baraki. Faut refaire le routing</p>
+<div class="container-fluid">
+    
+    <form [formGroup]="contractualDataForm" (ngSubmit)="onSubmit()" >
+<!-- Titre 1 Profil -->
+        <div class="row mb-5 text-start">
+            <h2>Profil</h2>
+        </div>        
+        <div class="row">     
+            <h3 class="d-block text-start">Identité</h3>
+<!-- Prénom -->
+            <div class="col bg-light p-2 d-flex flex-column">
+                <label class="d-block text-start" for="firstname">Prénom</label>
+                <input class="no-border" id="firstname" type="text" formControlName="firstname" placeholder="Prénom">
+                    <span class="text-start font-size-sm" *ngIf="contractualDataForm.get('firstname')?.touched && contractualDataForm.get('firstname')?.errors?.['required']">
+                        Champs requis                       
+                    </span>
+                    <span *ngIf="contractualDataForm.get('firstname')?.errors?.['maxlength']">
+                        Maximum 100 caractères
+                    </span>
+                    <span *ngIf="contractualDataForm.get('firstname')?.errors?.['pattern']">
+                        Vous ne pouvez pas rentrer de chiffres
+                    </span>
+            </div>
+<!-- Nom -->
+            <div class="col bg-light p-2 d-flex flex-column">
+                <label class="d-block text-start" for="lastname">Nom</label>
+                <input class="no-border" id="lastname" type="text" formControlName="lastname" placeholder="Nom">
+                    <span *ngIf="contractualDataForm.get('lastname')?.touched && contractualDataForm.get('lastname')?.errors?.['required']">
+                        Champs requis                       
+                    </span>
+                    <span *ngIf="contractualDataForm.get('lastname')?.errors?.['maxlength']">
+                        Maximum 100 caractères
+                    </span>
+                    <span *ngIf="contractualDataForm.get('lastname')?.errors?.['pattern']">
+                        Vous ne pouvez pas rentrer de chiffres
+                    </span>
+            </div>
+        </div>
+<!-- Matricule de paie -->
+        <div class="row bg-light p-2">
+            <label class="d-block text-start" for="payroll_identity">Matricule de paie</label>
+            <input class="no-border" id="payroll_identity" type="number" formControlName="payroll_identity" placeholder="Nom">
+            <!-- !! Message en s'affiche pas -->
+                <span *ngIf="contractualDataForm.get('payroll_identity')?.errors?.['maxlength']">
+                    Maximum 5 caractères
+                </span>
+        </div>
+<!-- Titre 2 -->
+        <div class="row mb-5 text-start">
+            <h2>Accès aux établissements</h2>
+        </div>
+<!-- Titre 2 -->
+        <div class="row mb-5 text-start">
+            <h2>Accès aux établissements</h2>
+        </div>
+    </form>
+</div>
