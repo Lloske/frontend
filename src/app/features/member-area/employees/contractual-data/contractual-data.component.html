@@ -2,13 +2,14 @@
 <div class="container-fluid">
     
     <form [formGroup]="contractualDataForm" (ngSubmit)="onSubmit()" >
-<!-- Titre 1 Profil -->
+<!-- Profil -->
         <div class="row mb-5 text-start">
             <h2>Profil</h2>
         </div>        
         <div class="row">     
+    <!-- Identité -->
             <h3 class="d-block text-start">Identité</h3>
-<!-- Prénom -->
+        <!-- Prénom -->
             <div class="col bg-light p-2 d-flex flex-column">
                 <label class="d-block text-start" for="firstname">Prénom</label>
                 <input class="no-border" id="firstname" type="text" formControlName="firstname" placeholder="Prénom">
@@ -22,7 +23,7 @@
                         Vous ne pouvez pas rentrer de chiffres
                     </span>
             </div>
-<!-- Nom -->
+        <!-- Nom -->
             <div class="col bg-light p-2 d-flex flex-column">
                 <label class="d-block text-start" for="lastname">Nom</label>
                 <input class="no-border" id="lastname" type="text" formControlName="lastname" placeholder="Nom">
@@ -36,23 +37,106 @@
                         Vous ne pouvez pas rentrer de chiffres
                     </span>
             </div>
+        <!-- Matricule de paie -->
+            <div class="row bg-light p-2">
+                <label class="d-block text-start" for="payroll_identity">Matricule de paie</label>
+                <input class="no-border" id="payroll_identity" type="number" formControlName="payroll_identity" placeholder="Nom">
+                <!-- !! Message en s'affiche pas -->
+                    <span *ngIf="contractualDataForm.get('payroll_identity')?.errors?.['maxlength']">
+                        Maximum 5 caractères
+                    </span>
+            </div>
         </div>
-<!-- Matricule de paie -->
-        <div class="row bg-light p-2">
-            <label class="d-block text-start" for="payroll_identity">Matricule de paie</label>
-            <input class="no-border" id="payroll_identity" type="number" formControlName="payroll_identity" placeholder="Nom">
-            <!-- !! Message en s'affiche pas -->
-                <span *ngIf="contractualDataForm.get('payroll_identity')?.errors?.['maxlength']">
-                    Maximum 5 caractères
-                </span>
+    <!-- Contact -->
+        <div class="row">     
+            <h3 class="d-block text-start">Contact</h3>
+        <!-- Email -->
+            <div class="col bg-light p-2 d-flex flex-column">
+                <label class="d-block text-start" for="email">Email</label>
+                <input class="no-border" id="email" type="email" formControlName="email" placeholder="Email">
+                    <span class="text-start font-size-sm" *ngIf="contractualDataForm.get('email')?.touched && contractualDataForm.get('email')?.errors?.['required']">
+                        Champs requis                       
+                    </span>
+                    <span *ngIf="contractualDataForm.get('email')?.errors?.['email']">
+                        Email invalide
+                    </span>
+            </div>
+
+
+        <!-- Téléphone -->
+            <div class="col bg-light p-2 d-flex flex-column">
+                <label class="d-block text-start" for="phone">Téléphone</label>
+                <input class="no-border" id="phone" type="tel" formControlName="phone" placeholder="Téléphone">
+                    <span *ngIf="contractualDataForm.get('phone')?.touched && contractualDataForm.get('phone')?.errors?.['required']">
+                        Champs requis                       
+                    </span>
+                    <span *ngIf="contractualDataForm.get('phone')?.errors?.['pattern']">
+                        Format de téléphone invalide
+                    </span>
+            </div>
         </div>
-<!-- Titre 2 -->
+<!-- Accès aux établissements -->
         <div class="row mb-5 text-start">
             <h2>Accès aux établissements</h2>
+            <div class="row">
+    <!-- Établissement principal -->
+                <div class="col bg-light p-2">
+                    <h5>Établissement principal</h5>
+                    <p>Établissement auquel l'employé est rattaché contractuellement</p>
+                </div>            
+                <div class="col bg-light p-2">
+                    <label class="d-block text-start" for="workplace_main">Établissement principal</label>
+                    <select name="workplace_main" id="workplace_main" formControlName="workplace_main">
+                        <option *ngFor="let workplaces of tempMainWorkplacesList" value="{{workplaces}}">{{workplaces}}</option>
+                    </select>
+                </div>
+            </div>
+    <!-- Établissement secondaire -->
+            <div class="row">
+                <div class="col bg-light p-2">
+                    <h5>Établissements secondaires</h5>
+                    <p>Établissements dans lesquels la personne peut travailler en plus de son établissement principal. </p>
+                </div>            
+                <div class="col bg-light p-2">
+                    <label class="d-block text-start" for="workplace_secondary">Établissement secondaire</label>
+                    <select name="workplace_secondary" id="workplace_secondary" formControlName="workplace_secondary">
+                        <option *ngFor="let workplaces of tempSecondaryWorkplacesList" value="{{workplaces}}">{{workplaces}}</option>
+                    </select>
+                </div>
+            </div>
         </div>
-<!-- Titre 2 -->
+<!-- Permissions -->
         <div class="row mb-5 text-start">
-            <h2>Accès aux établissements</h2>
+            <h2>Permissions</h2>
+        </div>
+    <!-- Ligne Permission -->
+        <div class="row mb-5 text-start">
+            <!-- Etablissements -->
+            <div class="col bg-light p-2">
+                <h6 class="d-block">Établissements</h6>
+                <p class="d-block">{{this.contractualDataForm.value.workplace_main}}</p>
+            </div>
+            <!-- Niveau de permission -->
+            <div class="col bg-light p-2">
+                <label class="d-block text-start" for="permission_level">Niveau de permission</label>
+                <select name="permission_level" id="permission_level" formControlName="permission_level">
+                    <option *ngFor="let permission of tempPermission_levelList" value="{{permission}}">{{permission}}</option>
+                </select>
+            </div>
+            <!-- visibility -->
+            <div class="col bg-light p-2">                
+                <div class="form-check form-switch">
+                    <label class="form-check-label d-block text-start" for="visibility">Afficher sur le planning</label>
+                    <input class="form-check-input no-border" type="checkbox" id="visibility" formControlName="visibility">
+                </div>
+            </div>
+            <!-- Affecter à une équipe -->
+            <div class="col bg-light p-2">
+                <label class="d-block text-start" for="team">Affecter à une équipe</label>
+                <select name="team" id="team" formControlName="team">
+                    <option *ngFor="let teams of tempTeamList" value="{{teams}}">{{teams}}</option>
+                </select>
+            </div>
         </div>
     </form>
 </div>
