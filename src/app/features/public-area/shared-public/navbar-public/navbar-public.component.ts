@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./navbar-public.component.scss']
 })
 export class NavbarPublicComponent {
-	active = 1;
   isNavbarToggled : boolean = false
 }
