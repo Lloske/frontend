@@ -1,16 +1,14 @@
 .component {
     background-color: aqua;
     border: 1px black solid;
-    padding: 10px;
+    padding: 4px;
 }
 .router {
     background-color: red;
     border: 1px black solid;
-    margin-top: 10px;
 }
 
 :root {
     --fc-border-color: black;
     --fc-daygrid-event-dot-width: 5px;
-    
   }

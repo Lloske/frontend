@@ -21,16 +21,13 @@
             <!-- NavBar centrale (Acceuil/Offres) -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0" ngbNav #nav="ngbNav" [(activeId)]="active">
                 <li [ngbNavItem]="1" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="#">Accueil</a>
-                    <ng-template ngbNavContent></ng-template>
+                    <a ngbNavLink class="nav-link" routerLink="/public-area/home">Accueil</a>
                 </li>
                 <li [ngbNavItem]="2" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="#">Offres</a>
-                    <ng-template ngbNavContent></ng-template>
+                    <a ngbNavLink class="nav-link" routerLink="/public-area/pricing">Offres</a>
                 </li>
                 <li [ngbNavItem]="3" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="/member-area/calendar">LogIn</a>
-                    <ng-template ngbNavContent></ng-template>
+                    <a ngbNavLink class="nav-link" routerLink="/public-area/logIn">LogIn</a>
                 </li>
                 <!-- Ajoutez d'autres éléments ngbNavItem ici -->
             </ul>
