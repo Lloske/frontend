@@ -1,47 +1,32 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <!-- Brand -->
         <a class="navbar-brand p-0" routerLink="/public-area/home">
             <img src="assets\Lloske_logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
-        </a>      
-        <!-- Brand -->
+        </a>
 
-        <!-- Code pour transformer les boutons de la navBar en dropDown menu sur écran plus petit -->
-
-        
         <button class="navbar-toggler" type="button" (click)="isNavbarToggled = !isNavbarToggled" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
-        
-        <!-- Code pour transformer les boutons de la navBar en dropDown menu sur écran plus petit -->
         
 
         <div class="collapse navbar-collapse" id="navContent">
-            <!-- NavBar centrale (Acceuil/Offres) -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" ngbNav #nav="ngbNav" [(activeId)]="active">
-                <li [ngbNavItem]="1" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="/public-area/home">Accueil</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="#">Accueil</a>
                 </li>
-                <li [ngbNavItem]="2" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="/public-area/pricing">Offres</a>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="#">Offres</a>
                 </li>
-                <li [ngbNavItem]="3" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="/public-area/logIn">LogIn</a>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/member-area/calendar">LogIn</a>
                 </li>
-                <!-- Ajoutez d'autres éléments ngbNavItem ici -->
             </ul>
-            <!-- NavBar centrale (Acceuil/Offres) -->
 
-
-
-            <!-- Barre de recherche -->
+<!-- Barre de recherche -->
             <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-            <!-- Barre de recherche -->        
+                <input class="form-control me-2" type="search" placeholder="Chercher" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Chercher</button>
+            </form>        
         </div>
     </div>
 </nav>
-<div [ngbNavOutlet]="nav" class="mt-2"></div>
