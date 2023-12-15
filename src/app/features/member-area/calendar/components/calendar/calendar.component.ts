@@ -10,8 +10,7 @@ import frLocale from '@fullcalendar/core/locales/fr'; // Importez la locale fran
 import interactionPlugin from '@fullcalendar/interaction';
 //Bootstrap
 import bootstrap5Plugin from '@fullcalendar/bootstrap5';
-// Modal bootstrap
-import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 
 
 
@@ -24,7 +23,7 @@ export class CalendarComponent implements OnInit {
 
   @ViewChild('content') content!: TemplateRef<any>; // Pour selectionner la modale qui porte l'attribut #content dans le HTML
 
-  constructor(private _modalService : NgbModal){}
+  constructor(){}
 
   ngOnInit(): void {
   }
@@ -36,7 +35,7 @@ export class CalendarComponent implements OnInit {
       resourceTimeGridPlugin,
       resourceTimelinePlugin,
       interactionPlugin,
-      bootstrap5Plugin,
+      // bootstrap5Plugin,
     ],
     events: [ // Shits
     // Doc générale event? https://fullcalendar.io/docs/event-model
@@ -117,7 +116,7 @@ export class CalendarComponent implements OnInit {
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
     initialView: 'resourceTimelineWeek', // Vue initialement chargée
     editable: true,
-    themeSystem: 'Bootstrap5', // https://fullcalendar.io/docs/themeSystem
+    themeSystem: 'standard', // https://fullcalendar.io/docs/themeSystem
 
     // Localisation https://fullcalendar.io/docs/localization 
     locale: frLocale, // Utiliser la locale française 
@@ -183,7 +182,7 @@ export class CalendarComponent implements OnInit {
     this.openModal(this.content)
   }
   openModal(content: TemplateRef<any>) {
-		this._modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
+		// this._modalService.open(content, { ariaLabelledBy: 'modal-basic-title' })
 	}
 }
 

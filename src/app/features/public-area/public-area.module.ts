@@ -4,12 +4,8 @@ import { CommonModule } from '@angular/common';
 import { PublicAreaRoutingModule } from './public-area-routing.module';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
 import { PublicAreaComponent } from './public-area.component';
 import { NavbarPublicComponent } from './shared-public/navbar-public/navbar-public.component';
-
-
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PricingComponent } from './pricing/pricing.component'; // Pour la nav-bar public
 
 /* Instructions pour créer un nouveau module :
@@ -30,7 +26,6 @@ import { PricingComponent } from './pricing/pricing.component'; // Pour la nav-b
   declarations: [
     HomeComponent,
     LoginComponent,
-    RegisterComponent,
     PublicAreaComponent,
     NavbarPublicComponent,
     PricingComponent,
@@ -38,7 +33,6 @@ import { PricingComponent } from './pricing/pricing.component'; // Pour la nav-b
   imports: [
     CommonModule,
     PublicAreaRoutingModule,
-    NgbModule
   ]
 })
 export class PublicAreaModule { }

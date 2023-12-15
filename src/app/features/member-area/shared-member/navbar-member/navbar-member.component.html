@@ -17,18 +17,15 @@
 
 
             <!-- NavBar centrale (Planning / Employés / ... ) -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0" ngbNav #nav="ngbNav" [(activeId)]="active">
-                <li [ngbNavItem]="1" class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="/member-area/calendar">Planning</a>
-                    <ng-template ngbNavContent></ng-template>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/member-area/calendar">Planning</a>
                 </li>
-                <li [ngbNavItem]="2" class="nav-item">
+                <li class="nav-item">
                     <a ngbNavLink class="nav-link" routerLink="/member-area/employees">Employés</a>
-                    <ng-template ngbNavContent></ng-template>
                 </li>      
-                <li [ngbNavItem]="3" class="nav-item">
+                <li class="nav-item">
                     <a ngbNavLink class="nav-link" routerLink="#">Rapport</a>
-                    <ng-template ngbNavContent></ng-template>
                 </li>
                 <!-- Ajoutez d'autres éléments ngbNavItem ici -->
             </ul>
@@ -48,4 +45,3 @@
         </div>
     </div>
 </nav>
-<div [ngbNavOutlet]="nav" class="mt-2"></div>

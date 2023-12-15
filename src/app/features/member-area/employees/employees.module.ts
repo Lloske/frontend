@@ -8,7 +8,6 @@ import { ContractualDataComponent } from './contractual-data/contractual-data.co
 import { HumanResourceComponent } from './human-resource/human-resource.component';
 import { SidebarEmployeesComponent } from './shared-employees/components/sidebar-employees/sidebar-employees.component';
 import { EmployeesComponent } from './employees.component';
-import { NgbNavModule } from '@ng-bootstrap/ng-bootstrap';
 import { SubnavbarEmployeesComponent } from './shared-employees/components/subnavbar-employees/subnavbar-employees.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -26,7 +25,6 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     EmployeesRoutingModule, 
-    NgbNavModule,
     ReactiveFormsModule
   ],
   exports: [
