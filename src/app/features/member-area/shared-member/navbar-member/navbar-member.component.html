@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+<nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
         <!-- Logo + Home -->
         <a class="navbar-brand p-0" routerLink="/public-area/home">
-            <img src="assets\Lloske_logo.png" alt="Logo" width="60" height="60" class="d-inline-block align-text-top">
+            <img src="assets\Lloske_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
         </a>      
         <!-- Logo + Home -->
 
@@ -17,15 +17,15 @@
 
 
             <!-- NavBar centrale (Planning / Employés / ... ) -->
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav me-auto mb-3 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" routerLink="/member-area/calendar">Planning</a>
+                    <a class="nav-link" routerLink="calendar">Planning</a>
                 </li>
                 <li class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="/member-area/employees">Employés</a>
+                    <a ngbNavLink class="nav-link" routerLink="employees">Employés</a>
                 </li>      
                 <li class="nav-item">
-                    <a ngbNavLink class="nav-link" routerLink="#">Rapport</a>
+                    <a ngbNavLink class="nav-link disabled" routerLink="#">Rapport</a>
                 </li>
                 <!-- Ajoutez d'autres éléments ngbNavItem ici -->
             </ul>
@@ -36,7 +36,7 @@
             <!-- Barre de recherche -->
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+                <button class="btn btn-outline-success disabled" type="submit">Search</button>
             </form>
             <!-- Barre de recherche -->
 

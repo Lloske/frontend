@@ -116,7 +116,7 @@ export class CalendarComponent implements OnInit {
     schedulerLicenseKey: 'CC-Attribution-NonCommercial-NoDerivatives', // Cléf de license Creative Commons
     initialView: 'resourceTimelineWeek', // Vue initialement chargée
     editable: true,
-    themeSystem: 'standard', // https://fullcalendar.io/docs/themeSystem
+    themeSystem: 'bootstrap5', // https://fullcalendar.io/docs/themeSystem
 
     // Localisation https://fullcalendar.io/docs/localization 
     locale: frLocale, // Utiliser la locale française 
