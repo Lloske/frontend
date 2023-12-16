@@ -1,32 +1,43 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-light rounded-pill">
     <div class="container-fluid">
-        <a class="navbar-brand p-0" routerLink="/public-area/home">
-            <img src="assets\Lloske_logo.png" alt="Logo" width="40" height="40" class="d-inline-block align-text-top">
-        </a>
-
-        <button class="navbar-toggler" type="button" (click)="isNavbarToggled = !isNavbarToggled" data-bs-toggle="collapse" data-bs-target="#navContent" aria-controls="navContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        
-
-        <div class="collapse navbar-collapse" id="navContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="/public-area/home">Accueil</a>
+        <div class="collapse navbar-collapse ps-4 pe-4 pt-1 pb-1" id="navContent">
+            <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
+                <li class="nav-item"> 
+                    <a class="d-flex p-0 nav-link" routerLink="/public-area/home">
+                        <img class="d-block" src="assets\Lloske_logo.png" alt="Logo" width="40" height="40" >
+                        <div class="d-block p-2">Lloske</div>        
+                    </a>            
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLink="/public-area/pricing">Offres</a>
                 </li>
-            </ul>
-
-<!-- Barre de recherche -->
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Chercher" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Chercher</button>
-            </form>        
+                <li class="nav-item">
+                    <button class="btn btn-primary ms-5" type="button" routerLink="/public-area/logIn">LogIn</button>
+                </li>
+            </ul>    
+              
         </div>
-        <div>
-            <button class="btn btn-primary ms-5" type="button" routerLink="/public-area/logIn">LogIn</button>
+    </div>
+</nav> -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light rounded-pill">
+    <div class="container-fluid">
+        <div class="collapse navbar-collapse ps-4 pe-4 pt-1 pb-1" id="navContent">
+            <ul class="navbar-nav d-flex justify-content-between mb-2 mb-lg-0 w-100">
+                <li class="nav-item"> 
+                    <a class="d-flex p-0 nav-link" routerLink="/public-area/home">
+                        <img class="d-block align-self-center" src="assets\Lloske_logo.png" alt="Logo" width="40" height="40">
+                        <div class="d-block p-2">Lloske</div>        
+                    </a>            
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/public-area/pricing">Offres</a>
+                </li>
+                <li class="nav-item align-self-center">
+                    <a class="btn btn-primary" type="button" routerLink="/public-area/logIn">LogIn</a>
+                </li>
+            </ul>    
+              
         </div>
     </div>
 </nav>
+
