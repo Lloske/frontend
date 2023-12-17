@@ -1,3 +1,23 @@
+// Perso: permet de laisser de l'espace à la nav bar
+.space_top{
+    margin-top: 10em;
+}
+
+// Animation fade in fade out
+@keyframes fadeIn {
+    from{ opacity: 0;}
+    to{ opacity: 1;}
+}
+@keyframes fadeOut {
+    from{ opacity: 1;}
+    to{ opacity: 0;}
+}
+
+
+
+
+
+// Bootstrap5 pricing:
 body {
     background-image: linear-gradient(180deg, var(--bs-secondary-bg), var(--bs-body-bg) 100px, var(--bs-body-bg));
 }
