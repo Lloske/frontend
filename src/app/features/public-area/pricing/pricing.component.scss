@@ -1,7 +1,3 @@
-// Perso: permet de laisser de l'espace à la nav bar
-.space_top{
-    margin-top: 10em;
-}
 
 // Animation fade in fade out
 @keyframes fadeIn {
@@ -12,8 +8,31 @@
     from{ opacity: 1;}
     to{ opacity: 0;}
 }
-
-
+.fadeInFast {
+    animation-name: fadeIn;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+.fadeInSlow1 {
+    animation-name: fadeIn;
+    animation-duration: 1.25s;
+    animation-fill-mode: forwards;
+}
+.fadeInSlow2 {
+    animation-name: fadeIn;
+    animation-duration: 1.75s;
+    animation-fill-mode: forwards;
+}
+.fadeInSlow3 {
+    animation-name: fadeIn;
+    animation-duration: 2.25s;
+    animation-fill-mode: forwards;
+}
+.fadeOut{
+    animation-name: fadeOut;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
 
 
 
