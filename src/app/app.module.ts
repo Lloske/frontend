@@ -8,6 +8,8 @@ import { PublicAreaModule } from './features/public-area/public-area.module';
 import { MemberAreaModule } from './features/member-area/member-area.module';
 import { AdminAreaModule } from './features/admin-area/admin-area.module';
 
+import { environment } from 'src/environments/environment.development';
+
 
 
 
@@ -36,7 +38,10 @@ import { AdminAreaModule } from './features/admin-area/admin-area.module';
     SharedModule,
   ],
   // 'providers' déclare les services disponibles dans toute l'application (injecteur racine).
-  providers: [],
+  providers: [
+    { provide : "urlBackend", useValue : environment.apiUrl+":"+environment.apiPort},
+    // { provide : HTTP_INTERCEPTORS, useClass : AuthTokenInterceptor, multi : true },
+  ],
   bootstrap: [AppComponent] // La ligne bootstrap: [AppComponent] dans le décorateur @NgModule de Angular sert à démarrer l'application Angular en indiquant le composant racine
 })
 export class AppModule { }
