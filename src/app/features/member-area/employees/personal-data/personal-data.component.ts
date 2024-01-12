@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserPersonnalDataService } from '../shared-employees/services/user-personnal-data.service';
 
 @Component({
   selector: 'app-personal-data',
@@ -9,7 +10,10 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class PersonalDataComponent {
   contractualDataForm : FormGroup;
 
-  constructor(private _fb: FormBuilder) {
+  constructor(
+    private _fb: FormBuilder,
+    private _userPersonnalDataService : UserPersonnalDataService,
+    ) {
     this.contractualDataForm = this._fb.group({
       firstname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
       lastname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
@@ -24,6 +28,32 @@ export class PersonalDataComponent {
       team : this._fb.array([]), // Pas sur qu'il faille mettre cela. Je pense qu'une requete backend pour afficher le tableau est bien
     })
   }
+
+  createUserPersonnal() {
+    if (this.contractualDataForm.valid) {
+      this._userPersonnalDataService.create(this.contractualDataForm.value).subscribe({
+        next : (response) => {
+          console.log("Utilisateur créé avec succès:", response);
+        },
+        error : (error) => {
+          console.error("Une erreur s'est produite lors de la création de l'utilisateur:", error);
+        },
+        complete : () =>  {
+          console.log("Création de l'utilisateur terminée.");
+        },
+      });
+      console.log(this.contractualDataForm.value); 
+      console.log("FORMULAIRE VALIDE");
+    } else {
+      this.contractualDataForm.markAllAsTouched();
+      console.log("FORMULAIRE INVALIDE");
+    }
+  };
+
+
+
+
+
 
   // !! A ADAPTER !! Listes temporaires d'établissements/niveau de permission et équipes. En faire venir une du back  
   tempMainWorkplacesList: string[] = [
@@ -50,6 +80,8 @@ export class PersonalDataComponent {
   onSubmit() {
     console.log(this.contractualDataForm.value);    
   }
+
+
   //getter pour récupérer les hobbies de notre FormGroup comme étant un FormArray
   get team() : FormArray {
     return this.contractualDataForm.get('team') as FormArray;

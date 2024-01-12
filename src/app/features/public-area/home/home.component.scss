@@ -60,19 +60,24 @@ h2{
 
 // A REFACTORISER : Vidéo et image cover de la vidéo. 
 .cover_img{
-    z-index : 1010;
-    position : absolute;
-    height: 95%;
+    // z-index: 1010;
     width: 100%;
-    max-width: 640px;
-    object-fit: fill;
-    box-sizing: border-box
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
 }
-video{
-    width: 85%;
-    height: auto;
+.cover_vid{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+.cover_div{
+    width : 100%;
+    height : 800px;
+    position: relative ;
+}
 
-}
 // Ancienne version
 // .cover_img{
 //     z-index : 1010;
