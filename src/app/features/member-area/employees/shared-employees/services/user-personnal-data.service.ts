@@ -17,6 +17,7 @@ export class UserPersonnalDataService {
       return this._httpClient.get<PersonalData[]>(this._url);
     }
     getById(id : number) : Observable<PersonalData> {
+      console.log(this._url)
       return this._httpClient.get<PersonalData>(`${this._url}/${id}`);
     }
     create(contractualData : PersonalData) : Observable<PersonalData> {

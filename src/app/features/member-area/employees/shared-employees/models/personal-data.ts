@@ -9,3 +9,10 @@ export interface PersonalData {
     Is_archived : boolean,
     Password_hash : string,
 }
+
+export interface PersonnalDataSideList {
+  Id : number
+  Firstname : string
+  Lastname : string
+// Ramener le role de l'utilisateur depuis la table workplaces_job_position
+}

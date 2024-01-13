@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="contractualDataForm" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="personalDataForm" (ngSubmit)="onSubmit()" >
 <!-- Profil -->
         <div class="row mt-4 mb-4 p-2 text-start">
             <h2>Profil</h2>
@@ -15,13 +15,13 @@
                         <div class="container d-flex flex-column">
                             <label class="d-block text-start" for="firstname">Prénom</label>
                             <input class="no-border" id="firstname" type="text" formControlName="firstname" placeholder="Prénom">
-                                <span class="text-start font-size-sm" *ngIf="contractualDataForm.get('firstname')?.touched && contractualDataForm.get('firstname')?.errors?.['required']">
+                                <span class="text-start font-size-sm" *ngIf="personalDataForm.get('firstname')?.touched && personalDataForm.get('firstname')?.errors?.['required']">
                                     Champs requis                       
                                 </span>
-                                <span *ngIf="contractualDataForm.get('firstname')?.errors?.['maxlength']">
+                                <span *ngIf="personalDataForm.get('firstname')?.errors?.['maxlength']">
                                     Maximum 100 caractères
                                 </span>
-                                <span *ngIf="contractualDataForm.get('firstname')?.errors?.['pattern']">
+                                <span *ngIf="personalDataForm.get('firstname')?.errors?.['pattern']">
                                     Vous ne pouvez pas rentrer de chiffres
                                 </span>
                         </div>
@@ -31,13 +31,13 @@
                         <div class="container d-flex flex-column">
                             <label class="d-block text-start" for="lastname">Nom</label>
                             <input class="no-border" id="lastname" type="text" formControlName="lastname" placeholder="Nom">
-                                <span *ngIf="contractualDataForm.get('lastname')?.touched && contractualDataForm.get('lastname')?.errors?.['required']">
+                                <span *ngIf="personalDataForm.get('lastname')?.touched && personalDataForm.get('lastname')?.errors?.['required']">
                                     Champs requis                       
                                 </span>
-                                <span *ngIf="contractualDataForm.get('lastname')?.errors?.['maxlength']">
+                                <span *ngIf="personalDataForm.get('lastname')?.errors?.['maxlength']">
                                     Maximum 100 caractères
                                 </span>
-                                <span *ngIf="contractualDataForm.get('lastname')?.errors?.['pattern']">
+                                <span *ngIf="personalDataForm.get('lastname')?.errors?.['pattern']">
                                     Vous ne pouvez pas rentrer de chiffres
                                 </span>
                         </div>
@@ -50,7 +50,7 @@
                             <label class="d-block text-start" for="payroll_identity">Matricule de paie</label>
                             <input class="no-border" id="payroll_identity" type="number" formControlName="payroll_identity" placeholder="Numéro de paie de l'employé auprès du secrétariat social">
                                 <!-- !! Message en s'affiche pas -->
-                                <span *ngIf="contractualDataForm.get('payroll_identity')?.errors?.['maxlength']">
+                                <span *ngIf="personalDataForm.get('payroll_identity')?.errors?.['maxlength']">
                                     Maximum 5 caractères
                                 </span>
                         </div>
@@ -69,10 +69,10 @@
                     <div class="col bg-light rounded ps-3 pe-3 pt-2 pb-2 d-flex flex-column">
                         <label class="d-block text-start" for="email">Email</label>
                         <input class="no-border" id="email" type="email" formControlName="email" placeholder="Email">
-                            <span class="text-start font-size-sm" *ngIf="contractualDataForm.get('email')?.touched && contractualDataForm.get('email')?.errors?.['required']">
+                            <span class="text-start font-size-sm" *ngIf="personalDataForm.get('email')?.touched && personalDataForm.get('email')?.errors?.['required']">
                                 Champs requis                       
                             </span>
-                            <span *ngIf="contractualDataForm.get('email')?.errors?.['email']">
+                            <span *ngIf="personalDataForm.get('email')?.errors?.['email']">
                                 Email invalide
                             </span>
                     </div>
@@ -82,10 +82,10 @@
                     <div class="col bg-light  ps-3 pe-3 pt-2 pb-2 d-flex flex-column">
                         <label class="d-block text-start" for="phone">Téléphone</label>
                         <input class="no-border text-start" id="phone" type="tel" formControlName="phone" placeholder="Téléphone">
-                            <span class="text-start" *ngIf="contractualDataForm.get('phone')?.touched && contractualDataForm.get('phone')?.errors?.['required']">
+                            <span class="text-start" *ngIf="personalDataForm.get('phone')?.touched && personalDataForm.get('phone')?.errors?.['required']">
                                 Champs requis                       
                             </span>
-                            <span class="text-start" *ngIf="contractualDataForm.get('phone')?.errors?.['pattern']">
+                            <span class="text-start" *ngIf="personalDataForm.get('phone')?.errors?.['pattern']">
                                 Format de téléphone invalide
                             </span>
                     </div>
@@ -133,7 +133,7 @@
             <!-- Etablissements -->
             <div class="col bg-light rounded p-2">
                 <h6 class="d-block">Établissements</h6>
-                <p class="d-block">{{this.contractualDataForm.value.workplace_main}}</p>
+                <p class="d-block">{{this.personalDataForm.value.workplace_main}}</p>
             </div>
             <!-- Niveau de permission -->
             <div class="col p-2">
@@ -150,12 +150,12 @@
                 </div>
             </div>
             <!-- Affecter à une équipe -->
-            <div class="col p-2">
+            <!-- <div class="col p-2">
                 <label class="d-block text-start" for="team">Affecter à une équipe</label>
                 <select name="team" id="team" formControlName="team">
                     <option *ngFor="let teams of tempTeamList" value="{{teams}}">{{teams}}</option>
                 </select>
-            </div>
+            </div> -->
         </div>
     </form>
 </div>
