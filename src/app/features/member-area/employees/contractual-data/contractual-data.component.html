@@ -1,161 +1,215 @@
 <div class="container">
     <form [formGroup]="contractualDataForm" (ngSubmit)="onSubmit()" >
-<!-- Profil -->
+<!--  Données contractuelles -->
         <div class="row mt-4 mb-4 p-2 text-start">
-            <h2>Profil</h2>
+            <h2>Données contractuelles</h2>
         </div>        
-        <!-- TITRE Identité -->
+    <!-- TITRE Type de contrat -->
         <div class="row mb-2 p-2 border-top">     
-            <h3 class="col-6 text-start">Identité</h3>
-        <!-- INPUT -->
+            <h3 class="col-6 mt-2 text-start">Type de contrat</h3>
+    <!-- INPUT -->
             <div class="col-6 p-2 d-flex flex-column">
-                <!-- Prénom & Nom --> 
                 <div class="row container d-flex flex-row">
+            <!-- Type de contrat --> 
                     <div class="col bg-light rounded me-4 p-2 text-start">
                         <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="firstname">Prénom</label>
-                            <input class="no-border" id="firstname" type="text" formControlName="firstname" placeholder="Prénom">
-                                <span class="text-start font-size-sm" *ngIf="contractualDataForm.get('firstname')?.touched && contractualDataForm.get('firstname')?.errors?.['required']">
-                                    Champs requis                       
-                                </span>
-                                <span *ngIf="contractualDataForm.get('firstname')?.errors?.['maxlength']">
-                                    Maximum 100 caractères
-                                </span>
-                                <span *ngIf="contractualDataForm.get('firstname')?.errors?.['pattern']">
-                                    Vous ne pouvez pas rentrer de chiffres
-                                </span>
+                            <label class="d-block text-start" for="contract_type">Type de contrat</label>
+                            <input class="no-border" id="contract_type" type="text" formControlName="contract_type" placeholder="CDI">
                         </div>
                     </div>
-
+            <!-- Durée du temps de travail -->
                     <div class="col bg-light rounded p-2 text-start">
                         <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="lastname">Nom</label>
-                            <input class="no-border" id="lastname" type="text" formControlName="lastname" placeholder="Nom">
-                                <span *ngIf="contractualDataForm.get('lastname')?.touched && contractualDataForm.get('lastname')?.errors?.['required']">
-                                    Champs requis                       
-                                </span>
-                                <span *ngIf="contractualDataForm.get('lastname')?.errors?.['maxlength']">
-                                    Maximum 100 caractères
-                                </span>
-                                <span *ngIf="contractualDataForm.get('lastname')?.errors?.['pattern']">
-                                    Vous ne pouvez pas rentrer de chiffres
-                                </span>
+                            <label class="d-block text-start" for="Employment_type">Durée du temps de travail</label>
+                            <input class="no-border" id="Employment_type" type="text" formControlName="Employment_type" placeholder="Temps plein">
                         </div>
                     </div>
-                </div>
-                <!-- Matricule de paie -->
-                <div class="row container mt-2">
-                    <div class="col bg-light rounded p-2 text-start">
-                        <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="payroll_identity">Matricule de paie</label>
-                            <input class="no-border" id="payroll_identity" type="number" formControlName="payroll_identity" placeholder="Numéro de paie de l'employé auprès du secrétariat social">
-                                <!-- !! Message en s'affiche pas -->
-                                <span *ngIf="contractualDataForm.get('payroll_identity')?.errors?.['maxlength']">
-                                    Maximum 5 caractères
-                                </span>
-                        </div>
-                    </div>
-                </div>
+                </div>                
             </div>
         </div>
-        <!-- Contact -->
-        <div class="row mb-5 p-2 border-top"> 
-            <div class="col-6 p-2">
-                <h3 class="text-start">Contact</h3>
-            </div>   
+    <!-- TITRE Intitulé du poste -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Intitulé du poste</h3>
+    <!-- INPUT Intitulé du poste-->
             <div class="col-6 p-2 d-flex flex-column">
-                <!-- Email -->
-                <div class="row container mb-1">
-                    <div class="col bg-light rounded ps-3 pe-3 pt-2 pb-2 d-flex flex-column">
-                        <label class="d-block text-start" for="email">Email</label>
-                        <input class="no-border" id="email" type="email" formControlName="email" placeholder="Email">
-                            <span class="text-start font-size-sm" *ngIf="contractualDataForm.get('email')?.touched && contractualDataForm.get('email')?.errors?.['required']">
-                                Champs requis                       
-                            </span>
-                            <span *ngIf="contractualDataForm.get('email')?.errors?.['email']">
-                                Email invalide
-                            </span>
-                    </div>
-                </div>
-                <!-- Téléphone -->
                 <div class="row container mt-2">
-                    <div class="col bg-light  ps-3 pe-3 pt-2 pb-2 d-flex flex-column">
-                        <label class="d-block text-start" for="phone">Téléphone</label>
-                        <input class="no-border text-start" id="phone" type="tel" formControlName="phone" placeholder="Téléphone">
-                            <span class="text-start" *ngIf="contractualDataForm.get('phone')?.touched && contractualDataForm.get('phone')?.errors?.['required']">
-                                Champs requis                       
-                            </span>
-                            <span class="text-start" *ngIf="contractualDataForm.get('phone')?.errors?.['pattern']">
-                                Format de téléphone invalide
-                            </span>
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Job_title">Intitulé du poste</label>
+                            <input class="no-border" id="Job_title" type="text" formControlName="Job_title" placeholder="Gestionnaire multifonction">
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
-<!-- Accès aux établissements -->
+    <!-- TITRE Date d’arrivée dans l’organisation -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Date d’arrivée dans l’organisation</h3>
+    <!-- INPUT Date d’arrivée dans l’organisation-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Organization_entry_date">Date d’arrivée dans l’organisation</label>
+                            <input class="no-border" id="Organization_entry_date" type="date" formControlName="Organization_entry_date" placeholder="Sélectionner la date">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- TITRE Date de début de contrat -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Date de début de contrat</h3>
+    <!-- INPUT Date de début de contrat-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Date de début de contrat --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Contract_start_date">Date de début de contrat</label>
+                            <input class="no-border" id="Contract_start_date" type="date" formControlName="Contract_start_date" placeholder="Date de début de contrat">
+                        </div>
+                    </div>
+            <!-- Heure de début de contrat -->
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Contract_start_time">Heure de début de contrat</label>
+                            <input class="no-border" id="Contract_start_time" type="time" formControlName="Contract_start_time" placeholder="Temps plein">
+                        </div>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+    <!-- TITRE Date de fin de période d’essai -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Date de fin de période d’essai</h3>
+    <!-- INPUT Date de fin de période d’essai-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Date de fin de période d’essai --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Probation_end_date">Date de fin de période d’essai</label>
+                            <input class="no-border" id="Probation_end_date" type="date" formControlName="Probation_end_date" placeholder="">
+                        </div>
+                    </div>
+            <!-- Espace vide -->
+                    <div class="col rounded p-2 text-start">
+                    </div>
+                </div>                
+            </div>           
+        </div>
+    <!-- TITRE Date de fin de contrat -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Date de fin de contrat</h3>
+    <!-- INPUT Date de fin de contrat-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Date de fin de contrat --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Contract_end">Date de fin de contrat</label>
+                            <input class="no-border" id="Contract_end" type="date" formControlName="Contract_end" placeholder="">
+                        </div>
+                    </div>
+            <!-- Espace vide -->
+                    <div class="col rounded p-2 text-start">
+                    </div>
+                </div>                
+            </div>           
+        </div>
+    <!-- TITRE Statut -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Statut</h3>
+    <!-- INPUT Statut & Catégorie professionnelle-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Statut --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Status">Status</label>
+                            <input class="no-border" id="Status" type="text" formControlName="Status" placeholder="Ouvrier et employés">
+                        </div>
+                    </div>
+            <!-- Catégorie professionnelle -->
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Professional_category">Catégorie professionnelle</label>
+                            <input class="no-border" id="Professional_category" type="text" formControlName="Professional_category" placeholder="Personnel de vente">
+                        </div>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+    <!-- TITRE Date de la dernière visite médicale -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Date de la dernière visite médicale</h3>
+    <!-- INPUT Date de la dernière visite médicale -->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Date de la dernière visite médicale --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="Last_medical_checkup_date">Date de la dernière visite médicale</label>
+                            <input class="no-border" id="Last_medical_checkup_date" type="date" formControlName="Last_medical_checkup_date" placeholder="Date de la dernière visite médicale">
+                        </div>
+                    </div>
+            <!-- Espace vide -->
+                    <div class="col rounded p-2 text-start">
+                    </div>
+                </div>                
+            </div>           
+        </div>
+<!--  Données salariales -->
         <div class="row p-2 text-start">
-            <h2 class="mb-4">Accès aux établissements</h2>
-    <!-- Établissement principal -->
-            <div class="row mb-2 p-2 border-top">
-                <div class="col p-2">
-                    <h3 class="text-start">Établissement principal</h3>
-                    <p class="w-75">Établissement auquel l'employé est rattaché contractuellement</p>
-                </div>            
-                <div class="col p-2 bg-light rounded">
-                    <label class="d-block text-start" for="workplace_main">Établissement principal</label>
-                    <select name="workplace_main" id="workplace_main" formControlName="workplace_main">
-                        <!-- <option *ngFor="let workplaces of tempMainWorkplacesList" value="{{workplaces}}">{{workplaces}}</option> -->
-                    </select>
-                </div>
-            </div>
-    <!-- Établissement secondaire -->
-            <div class="row mb-5 p-2 border-top">
-                <div class="col p-2">
-                    <h3>Établissements secondaires</h3>
-                    <p class="w-75">Établissements dans lesquels la personne peut travailler en plus de son établissement principal. </p>
-                </div>            
-                <div class="col bg-light rounded p-2">
-                    <label class="d-block text-start" for="workplace_secondary">Établissement secondaire</label>
-                    <select name="workplace_secondary" id="workplace_secondary" formControlName="workplace_secondary">
-                        <!-- <option *ngFor="let workplaces of tempSecondaryWorkplacesList" value="{{workplaces}}">{{workplaces}}</option> -->
-                    </select>
-                </div>
+            <h2 class="mb-4">Données salariales</h2>
+        <!-- TITRE Temps de travail -->
+            <div class="row mb-2 p-2 border-top">     
+                <h3 class="col-6 mt-2 text-start">Temps de travail</h3>
+        <!-- INPUT Mesure du temps & Volume horaire-->
+                <div class="col-6 p-2 d-flex flex-column">
+                    <div class="row container d-flex flex-row">
+                <!-- Mesure du temps --> 
+                        <div class="col bg-light rounded me-4 p-2 text-start">
+                            <div class="container d-flex flex-column">
+                                <label class="d-block text-start" for=" ">Mesure du temps</label>
+                                <input class="no-border" id="Work_time_measurement" type="text" formControlName="Work_time_measurement" placeholder="Mesure du temps">
+                            </div>
+                        </div>
+                <!-- Volume horaire -->
+                        <div class="col bg-light rounded p-2 text-start">
+                            <div class="container d-flex flex-column">
+                                <label class="d-block text-start" for="Maximum_contract_hours">Heure de début de contrat</label>
+                                <input class="no-border" id="Maximum_contract_hours" type="number" formControlName="Maximum_contract_hours" placeholder="/semaine">
+                            </div>
+                        </div>
+                    </div>                
+                </div>           
             </div>
         </div>
-<!-- Permissions -->
-        <div class="row mb-4 p-2 text-start">
-            <h2>Permissions</h2>
-        </div>
-    <!-- Ligne Permission -->
-        <div class="row mb-5 p-2 text-start">
-            <!-- Etablissements -->
-            <div class="col bg-light rounded p-2">
-                <h6 class="d-block">Établissements</h6>
-                <p class="d-block">{{this.contractualDataForm.value.workplace_main}}</p>
+<!-- Avenants -->
+        <div class="row p-2 text-start">
+            <h2 class="mb-4">Avenants au volume horaire</h2>
+        <!-- TITRE Avenant -->
+            <div class="row mb-2 p-2 border-top">     
+                <h3 class="col-6 mt-2 text-start">Avenant</h3>
+        <!-- INPUT Mesure du temps & Volume horaire-->
+                <div class="col-6 p-2 d-flex flex-column">
+                    <div class="row container d-flex flex-row">
+                <!-- Espace --> 
+                        <div class="col rounded me-4 p-2 text-start">
+                            <div class="container d-flex flex-column">                               
+                            </div>
+                        </div>
+                <!-- Bouton add -->
+                        <div class="col rounded p-2 text-start">
+                            <div class="container d-flex flex-column">
+                                <button class="btn btn-primary">Ajouter</button>
+                            </div>
+                        </div>
+                    </div>                
+                </div>           
             </div>
-            <!-- Niveau de permission -->
-            <div class="col p-2">
-                <label class="d-block text-start" for="permission_level">Niveau de permission</label>
-                <select name="permission_level" id="permission_level" formControlName="permission_level">
-                    <!-- <option *ngFor="let permission of tempPermission_levelList" value="{{permission}}">{{permission}}</option> -->
-                </select>
-            </div>
-            <!-- visibility -->
-            <div class="col bg-light rounded p-2">                
-                <div class="form-check form-switch d-flex flex-column">
-                    <label class="form-check-label text-start" for="visibility">Afficher sur le planning</label>
-                    <input class="form-check-input no-border" type="checkbox" id="visibility" formControlName="visibility">
-                </div>
-            </div>
-            <!-- Affecter à une équipe -->
-            <!-- <div class="col p-2">
-                <label class="d-block text-start" for="team">Affecter à une équipe</label>
-                <select name="team" id="team" formControlName="team">
-                    <option *ngFor="let teams of tempTeamList" value="{{teams}}">{{teams}}</option>
-                </select>
-            </div> -->
         </div>
     </form>
 </div>
