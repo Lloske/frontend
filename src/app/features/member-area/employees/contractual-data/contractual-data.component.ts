@@ -31,7 +31,7 @@ export class ContractualDataComponent {
     })
   }
 
-  createUserPersonnal() {
+  createContractualData() {
     if (this.contractualDataForm.valid) {
       this._contractualDataService.create(this.contractualDataForm.value).subscribe({
         next : (response) => {
