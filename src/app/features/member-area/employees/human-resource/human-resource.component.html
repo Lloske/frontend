@@ -106,161 +106,58 @@
                     </div>
                 </div>                       
             </div>
-        </div>    
-    
-<!-- !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-    <!-- TITRE Date de début de contrat -->
+        </div>        
+    <!-- TITRE Informations bancaires -->
         <div class="row mb-2 p-2 border-top">     
-            <h3 class="col-6 mt-2 text-start">Date de début de contrat</h3>
-    <!-- INPUT Date de début de contrat-->
+            <h3 class="col-6 mt-2 text-start">Informations bancaires</h3>
+    <!-- INPUT Informations bancaires-->
             <div class="col-6 p-2 d-flex flex-column">
                 <div class="row container d-flex flex-row">
-            <!-- Date de début de contrat --> 
+            <!-- Iban --> 
                     <div class="col bg-light rounded me-4 p-2 text-start">
                         <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Contract_start_date">Date de début de contrat</label>
-                            <input class="no-border" id="Contract_start_date" type="date" formControlName="Contract_start_date" placeholder="Date de début de contrat">
+                            <label class="d-block text-start" for="iban">Iban</label>
+                            <input class="no-border" id="iban" type="text" formControlName="iban" placeholder="Iban">
                         </div>
                     </div>
-            <!-- Heure de début de contrat -->
+            <!-- Bic -->
                     <div class="col bg-light rounded p-2 text-start">
                         <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Contract_start_time">Heure de début de contrat</label>
-                            <input class="no-border" id="Contract_start_time" type="time" formControlName="Contract_start_time" placeholder="Temps plein">
+                            <label class="d-block text-start" for="bic">Bic</label>
+                            <input class="no-border" id="bic" type="text" formControlName="bic" placeholder="Bic">
                         </div>
                     </div>
                 </div>                
             </div>           
         </div>
-    <!-- TITRE Date de fin de période d’essai -->
+    <!-- TITRE Sécurité Sociale/NIA/NTT -->
         <div class="row mb-2 p-2 border-top">     
-            <h3 class="col-6 mt-2 text-start">Date de fin de période d’essai</h3>
-    <!-- INPUT Date de fin de période d’essai-->
+            <h3 class="col-6 mt-2 text-start">Sécurité Sociale/NIA/NTT</h3>
+    <!-- INPUT Sécurité Sociale/NIA/NTT-->
             <div class="col-6 p-2 d-flex flex-column">
-                <div class="row container d-flex flex-row">
-            <!-- Date de fin de période d’essai --> 
-                    <div class="col bg-light rounded me-4 p-2 text-start">
-                        <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Probation_end_date">Date de fin de période d’essai</label>
-                            <input class="no-border" id="Probation_end_date" type="date" formControlName="Probation_end_date" placeholder="">
-                        </div>
-                    </div>
-            <!-- Espace vide -->
-                    <div class="col rounded p-2 text-start">
-                    </div>
-                </div>                
-            </div>           
-        </div>
-    <!-- TITRE Date de fin de contrat -->
-        <div class="row mb-2 p-2 border-top">     
-            <h3 class="col-6 mt-2 text-start">Date de fin de contrat</h3>
-    <!-- INPUT Date de fin de contrat-->
-            <div class="col-6 p-2 d-flex flex-column">
-                <div class="row container d-flex flex-row">
-            <!-- Date de fin de contrat --> 
-                    <div class="col bg-light rounded me-4 p-2 text-start">
-                        <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Contract_end">Date de fin de contrat</label>
-                            <input class="no-border" id="Contract_end" type="date" formControlName="Contract_end" placeholder="">
-                        </div>
-                    </div>
-            <!-- Espace vide -->
-                    <div class="col rounded p-2 text-start">
-                    </div>
-                </div>                
-            </div>           
-        </div>
-    <!-- TITRE Statut -->
-        <div class="row mb-2 p-2 border-top">     
-            <h3 class="col-6 mt-2 text-start">Statut</h3>
-    <!-- INPUT Statut & Catégorie professionnelle-->
-            <div class="col-6 p-2 d-flex flex-column">
-                <div class="row container d-flex flex-row">
-            <!-- Statut --> 
-                    <div class="col bg-light rounded me-4 p-2 text-start">
-                        <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Status">Status</label>
-                            <input class="no-border" id="Status" type="text" formControlName="Status" placeholder="Ouvrier et employés">
-                        </div>
-                    </div>
-            <!-- Catégorie professionnelle -->
+                <div class="row container mt-2">
                     <div class="col bg-light rounded p-2 text-start">
                         <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Professional_category">Catégorie professionnelle</label>
-                            <input class="no-border" id="Professional_category" type="text" formControlName="Professional_category" placeholder="Personnel de vente">
+                            <label class="d-block text-start" for="social_security_number">Sécurité Sociale/NIA/NTT</label>
+                            <input class="no-border" id="social_security_number" type="text" formControlName="social_security_number" placeholder="Numéro">
                         </div>
                     </div>
-                </div>                
-            </div>           
-        </div>
-    <!-- TITRE Date de la dernière visite médicale -->
-        <div class="row mb-2 p-2 border-top">     
-            <h3 class="col-6 mt-2 text-start">Date de la dernière visite médicale</h3>
-    <!-- INPUT Date de la dernière visite médicale -->
-            <div class="col-6 p-2 d-flex flex-column">
-                <div class="row container d-flex flex-row">
-            <!-- Date de la dernière visite médicale --> 
-                    <div class="col bg-light rounded me-4 p-2 text-start">
-                        <div class="container d-flex flex-column">
-                            <label class="d-block text-start" for="Last_medical_checkup_date">Date de la dernière visite médicale</label>
-                            <input class="no-border" id="Last_medical_checkup_date" type="date" formControlName="Last_medical_checkup_date" placeholder="Date de la dernière visite médicale">
-                        </div>
-                    </div>
-            <!-- Espace vide -->
-                    <div class="col rounded p-2 text-start">
-                    </div>
-                </div>                
-            </div>           
-        </div>
-<!--  Données salariales -->
-        <div class="row p-2 text-start">
-            <h2 class="mb-4">Données salariales</h2>
-        <!-- TITRE Temps de travail -->
-            <div class="row mb-2 p-2 border-top">     
-                <h3 class="col-6 mt-2 text-start">Temps de travail</h3>
-        <!-- INPUT Mesure du temps & Volume horaire-->
-                <div class="col-6 p-2 d-flex flex-column">
-                    <div class="row container d-flex flex-row">
-                <!-- Mesure du temps --> 
-                        <div class="col bg-light rounded me-4 p-2 text-start">
-                            <div class="container d-flex flex-column">
-                                <label class="d-block text-start" for=" ">Mesure du temps</label>
-                                <input class="no-border" id="Work_time_measurement" type="text" formControlName="Work_time_measurement" placeholder="Mesure du temps">
-                            </div>
-                        </div>
-                <!-- Volume horaire -->
-                        <div class="col bg-light rounded p-2 text-start">
-                            <div class="container d-flex flex-column">
-                                <label class="d-block text-start" for="Maximum_contract_hours">Heure de début de contrat</label>
-                                <input class="no-border" id="Maximum_contract_hours" type="number" formControlName="Maximum_contract_hours" placeholder="/semaine">
-                            </div>
-                        </div>
-                    </div>                
-                </div>           
+                </div>
             </div>
         </div>
-<!-- Avenants -->
-        <div class="row p-2 text-start">
-            <h2 class="mb-4">Avenants au volume horaire</h2>
-        <!-- TITRE Avenant -->
-            <div class="row mb-2 p-2 border-top">     
-                <h3 class="col-6 mt-2 text-start">Avenant</h3>
-        <!-- INPUT Mesure du temps & Volume horaire-->
-                <div class="col-6 p-2 d-flex flex-column">
-                    <div class="row container d-flex flex-row">
-                <!-- Espace --> 
-                        <div class="col rounded me-4 p-2 text-start">
-                            <div class="container d-flex flex-column">                               
-                            </div>
+    <!-- TITRE Remarques -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Remarques</h3>
+    <!-- INPUT Remarques-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column remarques">
+                            <label class="d-block text-start" for="user_note">Remarques</label>
+                            <input class="no-border" id="user_note" type="text" formControlName="user_note" placeholder="Commentaires">
                         </div>
-                <!-- Bouton add -->
-                        <div class="col rounded p-2 text-start">
-                            <div class="container d-flex flex-column">
-                                <button class="btn btn-primary">Ajouter</button>
-                            </div>
-                        </div>
-                    </div>                
-                </div>           
+                    </div>
+                </div>
             </div>
         </div>
     </form>
