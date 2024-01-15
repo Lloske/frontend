@@ -33,6 +33,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     // PersonalDataComponent,
     // ContractualDataComponent,
     // HumanResourceComponent
-  ]
+  ],
+  bootstrap: [EmployeesComponent]
 })
 export class EmployeesModule { }

@@ -17,6 +17,7 @@ const routes: Routes = [
   // Ne pas mettre de chemin vide car on a déja chargé le composant dans le routing parent (app-routing)
   { path : "calendar", component : CalendarComponent },
   { path : "employees", component : EmployeesComponent, loadChildren : () => import("./employees/employees.module").then(m => m.EmployeesModule) },
+  { path : '', redirectTo : '/member-area/employees', pathMatch : "full" },
 ];
 
 

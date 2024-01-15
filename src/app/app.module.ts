@@ -33,9 +33,6 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    // PublicAreaModule,
-    // MemberAreaModule,
-    // AdminAreaModule,
     SharedModule,
     HttpClientModule,
   ],
