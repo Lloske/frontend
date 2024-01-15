@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UserPersonnalDataService } from '../shared-employees/services/user-personnal-data.service';
 
 @Component({
   selector: 'app-personal-data',
@@ -7,10 +8,13 @@ import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./personal-data.component.scss']
 })
 export class PersonalDataComponent {
-  contractualDataForm : FormGroup;
+  personalDataForm : FormGroup;
 
-  constructor(private _fb: FormBuilder) {
-    this.contractualDataForm = this._fb.group({
+  constructor(
+    private _fb: FormBuilder,
+    private _userPersonnalDataService : UserPersonnalDataService,
+    ) {
+    this.personalDataForm = this._fb.group({
       firstname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
       lastname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
       payroll_identity : [null, [Validators.maxLength(5)] , []],
@@ -22,9 +26,35 @@ export class PersonalDataComponent {
       permission_level : [null, [Validators.required] , []],
       visibility : [null, [Validators.required] , []],
       //team n'est pas UN control mais un tableau avec plusieurs controls
-      team : this._fb.array([]), // Pas sur qu'il faille mettre cela. Je pense qu'une requete backend pour afficher le tableau est bien
+      // team : this._fb.array([]), // Pas sur qu'il faille mettre cela. Je pense qu'une requete backend pour afficher le tableau est bien
     })
   }
+
+  createUserPersonnal() {
+    if (this.personalDataForm.valid) {
+      this._userPersonnalDataService.create(this.personalDataForm.value).subscribe({
+        next : (response) => {
+          console.log("Utilisateur créé avec succès:", response);
+        },
+        error : (error) => {
+          console.error("Une erreur s'est produite lors de la création de l'utilisateur:", error);
+        },
+        complete : () =>  {
+          console.log("Création de l'utilisateur terminée.");
+        },
+      });
+      console.log(this.personalDataForm.value); 
+      console.log("FORMULAIRE VALIDE");
+    } else {
+      this.personalDataForm.markAllAsTouched();
+      console.log("FORMULAIRE INVALIDE");
+    }
+  };
+
+
+
+
+
 
   // !! A ADAPTER !! Listes temporaires d'établissements/niveau de permission et équipes. En faire venir une du back  
   tempMainWorkplacesList: string[] = [
@@ -49,10 +79,12 @@ export class PersonalDataComponent {
   ];
 
   onSubmit() {
-    console.log(this.contractualDataForm.value);    
+    console.log(this.personalDataForm.value);    
   }
+
+
   //getter pour récupérer les hobbies de notre FormGroup comme étant un FormArray
-  get team() : FormArray {
-    return this.contractualDataForm.get('team') as FormArray;
-  }
+  // get team() : FormArray {
+  //   return this.personalDataForm.get('team') as FormArray;
+  // }
 }

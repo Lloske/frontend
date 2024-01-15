@@ -21,3 +21,16 @@ span{
     font-size: 0.6rem;
     color: red;
 }
+input[type="date"]:not(:focus){
+    color: transparent
+}
+input[type="time"]:not(:focus){
+    color: transparent
+}
+input:focus{
+    outline: none
+}
+input{
+    background-color:#f8f9fa;
+    border-color: transparent;
+}

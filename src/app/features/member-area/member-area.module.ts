@@ -35,7 +35,7 @@ import { EmployeesModule } from './employees/employees.module';
     MemberAreaRoutingModule,
     FullCalendarModule,
     ReactiveFormsModule,
-    EmployeesModule // Importe les composants (contractual data, human ressource ect) du module employees
+    // EmployeesModule // Importe les composants (contractual data, human ressource ect) du module employees
   ], 
   bootstrap:[MemberAreaComponent]
 })

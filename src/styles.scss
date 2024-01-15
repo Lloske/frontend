@@ -8,3 +8,34 @@
 .space_top{
     margin-top: 10em;
 }
+:root {
+    --fc-border-color:#727272;
+    --fc-daygrid-event-dot-width: 5px;
+    font-family: Gellix sans-serif;
+
+}
+.fc{
+    font-family: Gellix sans-serif;
+}
+.fc-timeline-slot-cushion {
+    color: #727272;
+    text-align: center;
+}
+.fc-timeline-event{
+    padding: 15% 0%;
+    margin: 0% 0%;
+    
+}
+
+.fc .fc-timeline-events{
+    width: 1.5em;
+    // margin-top: 10px;
+    border: black 2px round;
+}
+.fc .fc-datagrid-expander .fc-icon{
+    display: none;
+}
+.fc .fc-datagrid-cell-cushion{
+    font-size: 1.2em;
+    height: max-content;
+}

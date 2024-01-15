@@ -9,7 +9,7 @@ import { HumanResourceComponent } from './human-resource/human-resource.componen
 import { SidebarEmployeesComponent } from './shared-employees/components/sidebar-employees/sidebar-employees.component';
 import { EmployeesComponent } from './employees.component';
 import { SubnavbarEmployeesComponent } from './shared-employees/components/subnavbar-employees/subnavbar-employees.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     EmployeesRoutingModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   exports: [
     // NavbarEmployeesComponent,

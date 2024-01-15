@@ -1,3 +1,36 @@
-.no-border {
-    border: none;
+h2{
+    font-size: 1.25rem;
+    font-weight: 800;
+}
+h3{
+    font-size: 1rem;
+    color: rgb(103, 103, 103);
+    font-weight: 600;
+}
+label{
+    font-size: 0.7rem;
+    color: rgb(103, 103, 103);
+}
+p, ::placeholder{
+    font-size: 0.75rem;
+    color: rgb(72, 72, 72);
+    font-style: italic;
+    font-weight: 600;
+}
+span{
+    font-size: 0.6rem;
+    color: red;
+}
+input[type="date"]:not(:focus){
+    color: transparent
+}
+input[type="time"]:not(:focus){
+    color: transparent
+}
+input:focus{
+    outline: none
+}
+input{
+    background-color:#f8f9fa;
+    border-color: transparent;
 }

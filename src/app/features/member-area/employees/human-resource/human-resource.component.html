@@ -1,1 +1,164 @@
-<p>human-resource works!</p>
+<div class="container">
+    <form [formGroup]="humanResourceForm" (ngSubmit)="onSubmit()" >
+<!--   Informations RH  -->
+        <div class="row mt-4 mb-4 p-2 text-start">
+            <h2>Informations RH</h2>
+        </div>        
+    <!-- TITRE Naissance -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Naissance</h3>
+    <!-- INPUT Naissance -->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Date de naissance --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="birthdate">Date de naissance</label>
+                            <input class="no-border" id="birthdate" type="date" formControlName="birthdate" placeholder="Date de naissance">
+                        </div>
+                    </div>
+            <!-- Ville de naissance -->
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="birthplace">Ville de naissance</label>
+                            <input class="no-border" id="birthplace" type="text" formControlName="birthplace" placeholder="Ville de naissance">
+                        </div>
+                    </div>
+            <!-- Pays de naissance -->                
+                </div> 
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="birthland">Pays de naissance</label>
+                            <input class="no-border" id="birthland" type="text" formControlName="birthland" placeholder="Pays de naissance">
+                        </div>
+                    </div>                    
+                </div>               
+            </div>
+        </div>
+    <!-- TITRE Nationalité -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Nationalité</h3>
+    <!-- INPUT Nationalité -->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="nationality">Nationalité</label>
+                            <input class="no-border" id="nationality" type="text" formControlName="nationality" placeholder="Nationalité">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- TITRE Sexe -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Sexe</h3>
+    <!-- INPUT Sexe-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="gender">Sexe</label>
+                            <input class="no-border" id="gender" type="text" formControlName="gender" placeholder="Sexe">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- TITRE Adresse -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Adresse</h3>
+    <!-- INPUT Adresse -->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+             
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="address_street">Adresse</label>
+                            <input class="no-border" id="address_street" type="text" formControlName="address_street" placeholder="Adresse">
+                        </div>
+                    </div>
+                </div>
+                <div class="row container mt-2 d-flex flex-row">
+            <!-- Code postal --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="adress_postal_code">Code postal</label>
+                            <input class="no-border" id="adress_postal_code" type="date" formControlName="adress_postal_code" placeholder="Code postal">
+                        </div>
+                    </div>
+            <!-- Ville -->
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="adress_city">Ville</label>
+                            <input class="no-border" id="adress_city" type="text" formControlName="adress_city" placeholder="Ville">
+                        </div>
+                    </div>               
+                </div> 
+            <!-- Pays --> 
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="adress_country">Pays</label>
+                            <input class="no-border" id="adress_country" type="text" formControlName="adress_country" placeholder="Pays">
+                        </div>
+                    </div>
+                </div>                       
+            </div>
+        </div>        
+    <!-- TITRE Informations bancaires -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Informations bancaires</h3>
+    <!-- INPUT Informations bancaires-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container d-flex flex-row">
+            <!-- Iban --> 
+                    <div class="col bg-light rounded me-4 p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="iban">Iban</label>
+                            <input class="no-border" id="iban" type="text" formControlName="iban" placeholder="Iban">
+                        </div>
+                    </div>
+            <!-- Bic -->
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="bic">Bic</label>
+                            <input class="no-border" id="bic" type="text" formControlName="bic" placeholder="Bic">
+                        </div>
+                    </div>
+                </div>                
+            </div>           
+        </div>
+    <!-- TITRE Sécurité Sociale/NIA/NTT -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Sécurité Sociale/NIA/NTT</h3>
+    <!-- INPUT Sécurité Sociale/NIA/NTT-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column">
+                            <label class="d-block text-start" for="social_security_number">Sécurité Sociale/NIA/NTT</label>
+                            <input class="no-border" id="social_security_number" type="text" formControlName="social_security_number" placeholder="Numéro">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- TITRE Remarques -->
+        <div class="row mb-2 p-2 border-top">     
+            <h3 class="col-6 mt-2 text-start">Remarques</h3>
+    <!-- INPUT Remarques-->
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="row container mt-2">
+                    <div class="col bg-light rounded p-2 text-start">
+                        <div class="container d-flex flex-column remarques">
+                            <label class="d-block text-start" for="user_note">Remarques</label>
+                            <input class="no-border" id="user_note" type="text" formControlName="user_note" placeholder="Commentaires">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
