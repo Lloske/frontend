@@ -94,6 +94,20 @@
 
 
         </div>
+        <!-- RUP -->
+        <div class="row mb-5 p-2 border-top"> 
+            <div class="col-6 p-2">
+               <h3 class="text-start">Afficher dans le registre unique du personnel (RUP)</h3>  <!-- Remplacer h3 par label? -->
+            </div>   
+            <div class="col-6 p-2 d-flex flex-column">
+                <div class="form-check form-switch">
+                    <label class="form-check-label text-start" for="rup"></label>
+                    <input class="form-check-input no-border" type="checkbox" id="rup" formControlName="rup">
+                </div>
+            </div>
+
+
+        </div>
 <!-- Accès aux établissements -->
         <div class="row p-2 text-start">
             <h2 class="mb-4">Accès aux établissements</h2>
@@ -142,7 +156,7 @@
                     <option *ngFor="let permission of tempPermission_levelList" value="{{permission}}">{{permission}}</option>
                 </select>
             </div>
-            <!-- visibility -->
+            <!-- Visibility -->
             <div class="col bg-light rounded p-2">                
                 <div class="form-check form-switch d-flex flex-column">
                     <label class="form-check-label text-start" for="visibility">Afficher sur le planning</label>
