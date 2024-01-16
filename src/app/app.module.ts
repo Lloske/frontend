@@ -8,8 +8,9 @@ import { PublicAreaModule } from './features/public-area/public-area.module';
 import { MemberAreaModule } from './features/member-area/member-area.module';
 import { AdminAreaModule } from './features/admin-area/admin-area.module';
 
-import { environment } from 'src/environments/environment.development';
+
 import { HttpClientModule } from '@angular/common/http';
+import { environment } from 'src/environments/environment.development';
 
 
 

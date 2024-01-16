@@ -1,9 +1,30 @@
 <!-- Faut il mettre des objets nav ou bien simplement des boutons pour filtrer la liste? Nav c'est juste pour le style pour l'insant -->
 <ul class="nav nav-tabs">
-	<li class="nav-item">
-		<button class="nav-link">Actifs</button>
-	</li>
-	<li class="nav-item">
-		<button class="nav-link">Archivés</button>
-	</li>
+	<div class="d-flex flex-column flex-md-row py-md-2 align-items-center justify-content-center">
+		<div class="list-group list-group-checkable d-grid gap-2 border-0">
+		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios1" value="" checked>
+		  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios1">
+			Antoine Tilman
+			<span class="d-block small opacity-50">With support text underneath to add more detail</span>
+		  </label>
+	  
+		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
+		  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios2">
+			Second radio
+			<span class="d-block small opacity-50">Some other text goes here</span>
+		  </label>
+	  
+		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios3" value="">
+		  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios3">
+			Third radio
+			<span class="d-block small opacity-50">And we end with another snippet of text</span>
+		  </label>
+	  
+		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios4" value="" disabled>
+		  <label class="list-group-item rounded-3 py-3" for="listGroupCheckableRadios4">
+			Fourth disabled radio
+			<span class="d-block small opacity-50">This option is disabled</span>
+		  </label>
+		</div>
+	  </div>
 </ul>
