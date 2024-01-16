@@ -1,18 +1,18 @@
 export interface PersonalData {
-    Id :  number,
-    Firstname : string,
-    Lastname : string,
-    Payroll_identity : string,
-    Email : string
-    Phone : string
-    Is_in_employee_registrer : boolean,
-    Is_archived : boolean,
-    Password_hash : string,
+    id :  number,
+    firstname : string,
+    lastname : string,
+    payroll_identity : string,
+    email : string
+    phone : string
+    is_in_employee_registrer : boolean,
+    is_archived : boolean,
+    password_hash : string,
 }
 
 export interface PersonnalDataSideList {
-  Id : number
-  Firstname : string
-  Lastname : string
+  id : number
+  firstname : string
+  lastname : string
 // Ramener le role de l'utilisateur depuis la table workplaces_job_position
 }
