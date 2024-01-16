@@ -1,5 +1,5 @@
 <div class="container">
-    <form [formGroup]="personalDataForm" (ngSubmit)="onSubmit()" >
+    <form *ngIf="employee" [formGroup]="personalDataForm" (ngSubmit)="onSubmit()" >
 <!-- Profil -->
         <div class="row mt-4 mb-4 p-2 text-start">
             <h2>Profil</h2>

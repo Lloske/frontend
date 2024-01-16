@@ -1,38 +1,9 @@
-<!-- <ul class="nav nav-tabs">
-	<div class="container-fluid d-flex flex-column flex-md-row py-md-2 align-items-center justify-content-center">
-		<div class="list-group list-group-checkable d-grid gap-2 border-0">
-		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios1" value="" checked>
-		  <label class="list-group-item rounded-3 py-3 text-start" for="listGroupCheckableRadios1">
-			Antoine Tilman
-			<span class="d-block small opacity-50">Administrateur système</span>
-		  </label>
-	  
-		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios2" value="">
-		  <label class="list-group-item rounded-3 py-3 text-start" for="listGroupCheckableRadios2">
-			Jean Dupont
-			<span class="d-block small opacity-50">Planificateur avancé</span>
-		  </label>
-	  
-		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios3" value="">
-		  <label class="list-group-item rounded-3 py-3 text-start" for="listGroupCheckableRadios3">
-			Marie Martin
-			<span class="d-block small opacity-50">Employés standard</span>
-		  </label>
-
-		  <input class="list-group-item-check pe-none" type="radio" name="listGroupCheckableRadios" id="listGroupCheckableRadios4" value="">
-		  <label class="list-group-item rounded-3 py-3 text-start" for="listGroupCheckableRadios4">
-			Pierre Dubois
-			<span class="d-block small opacity-50">Employés standard</span>
-		  </label>
-		</div>
-	  </div>
-</ul> -->
 <ul class="nav nav-tabs">
 	<div class="container-fluid d-flex flex-column flex-md-row py-md-2 align-items-center justify-content-center">
 	  <div class="list-group list-group-checkable d-grid gap-2 border-0">
 		<div *ngFor="let user of userList; let i = index">
 		  <input class="list-group-item-check pe-none" type="radio" [name]="'listGroupCheckableRadios'" [id]="'listGroupCheckableRadios' + i" [value]="user.id">
-		  <label class="list-group-item rounded-3 py-3 text-start" [for]="'listGroupCheckableRadios' + i">
+		  <label class="list-group-item rounded-3 text-start border-0" [for]="'listGroupCheckableRadios' + i" (click)="select(user.id)">
 			{{ user.firstname }} {{ user.lastname }}
 			<span class="d-block small opacity-50">Rôle à définir</span>
 		  </label>

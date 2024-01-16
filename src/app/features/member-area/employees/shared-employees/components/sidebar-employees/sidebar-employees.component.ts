@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { UserPersonnalDataService } from '../../services/user-personnal-data.service';
 import { Observable, Subscription } from 'rxjs';
 import { PersonalData, PersonnalDataSideList } from '../../models/personal-data';
@@ -10,27 +10,23 @@ import { PersonalData, PersonnalDataSideList } from '../../models/personal-data'
 })
 export class SidebarEmployeesComponent {
 
-   constructor (private _userPersonnalDataService : UserPersonnalDataService){    
-   }
+  userList: PersonalData[] = [];
+  private subscription!: Subscription;
 
-   private _userListSubscribe : Subscription = new Subscription();
-   userList : PersonalData[] = [];
+  constructor(private _userPersonnalDataService: UserPersonnalDataService) {}
 
-   ngOnInit () : void {
+  ngOnInit() {
+    this.subscription = this._userPersonnalDataService.userList.subscribe((users: PersonalData[]) => {
+      this.userList = users;
+    });
+  }
 
-    this._userListSubscribe = this._userPersonnalDataService.getAll().subscribe({
-      next : (response) => {
-        this.userList = response
-        console.log("Récupération de la liste des utilisatateurs avec succes", response)
-      },
-      error : (error) => {
-        console.error("Une erreur s'est produite lors de la récupération de la liste d'utilisateur:", error);
-      },
-      complete : () =>  {
-        console.log("Création de l'utilisateur terminée.");
-      },
-    })
-   }
-   
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  select(id : number){
+    this._userPersonnalDataService.getByIdProfil(id)
+  }
  
 }

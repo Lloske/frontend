@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserPersonnalDataService } from '../shared-employees/services/user-personnal-data.service';
+import { PersonalData } from '../shared-employees/models/personal-data';
 
 @Component({
   selector: 'app-personal-data',
@@ -10,10 +11,21 @@ import { UserPersonnalDataService } from '../shared-employees/services/user-pers
 export class PersonalDataComponent {
   personalDataForm : FormGroup;
 
+  employee : PersonalData | undefined
+
   constructor(
     private _fb: FormBuilder,
     private _userPersonnalDataService : UserPersonnalDataService,
     ) {
+
+      _userPersonnalDataService.subjet.subscribe({
+        next : (data : PersonalData) => {
+          this.employee = data
+          console.log(data)
+          this.personalDataForm.patchValue(data);
+        }
+      })
+
     this.personalDataForm = this._fb.group({
       firstname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
       lastname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
