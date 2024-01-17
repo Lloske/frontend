@@ -11,7 +11,7 @@ import { PersonalData } from '../shared-employees/models/personal-data';
 export class PersonalDataComponent {
   personalDataForm : FormGroup;
 
-  employee : PersonalData | undefined
+  personnalData : PersonalData | undefined
 
   constructor(
     private _fb: FormBuilder,
@@ -20,7 +20,7 @@ export class PersonalDataComponent {
 
       _userPersonnalDataService.subjet.subscribe({
         next : (data : PersonalData) => {
-          this.employee = data
+          this.personnalData = data
           console.log(data)
           this.personalDataForm.patchValue(data);
         }

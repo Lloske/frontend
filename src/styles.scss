@@ -21,16 +21,17 @@
     color: #727272;
     text-align: center;
 }
-.fc-timeline-event{
+.fc .fc-timeline-event{
     padding: 15% 0%;
     margin: 0% 0%;
-    
+    // border: 10px solid black;
 }
 
 .fc .fc-timeline-events{
     width: 1.5em;
     // margin-top: 10px;
-    border: black 2px round;
+    // border: black 2px round;
+    
 }
 .fc .fc-datagrid-expander .fc-icon{
     display: none;
