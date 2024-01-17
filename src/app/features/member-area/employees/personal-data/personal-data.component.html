@@ -1,5 +1,5 @@
 <div class="container">
-    <form *ngIf="employee" [formGroup]="personalDataForm" (ngSubmit)="onSubmit()" >
+    <form *ngIf="personnalData" [formGroup]="personalDataForm" (ngSubmit)="onSubmit()" >
 <!-- Profil -->
         <div class="row mt-4 mb-4 p-2 text-start">
             <h2>Profil</h2>
@@ -11,7 +11,7 @@
             <div class="col-6 p-2 d-flex flex-column">
                 <!-- Prénom & Nom --> 
                 <div class="row container d-flex flex-row">
-                    <div class="col bg-light rounded me-4 p-2 text-start">
+                    <div class="col bg-light rounded me-2 p-2 text-start">
                         <div class="container d-flex flex-column">
                             <label class="d-block text-start" for="firstname">Prénom</label>
                             <input class="no-border" id="firstname" type="text" formControlName="firstname" placeholder="Prénom">
@@ -79,7 +79,7 @@
                 </div>
                 <!-- Téléphone -->
                 <div class="row container mt-2">
-                    <div class="col bg-light  ps-3 pe-3 pt-2 pb-2 d-flex flex-column">
+                    <div class="col bg-light ps-3 pe-3 pt-2 pb-2 d-flex flex-column">
                         <label class="d-block text-start" for="phone">Téléphone</label>
                         <input class="no-border text-start" id="phone" type="tel" formControlName="phone" placeholder="Téléphone">
                             <span class="text-start" *ngIf="personalDataForm.get('phone')?.touched && personalDataForm.get('phone')?.errors?.['required']">
@@ -112,12 +112,12 @@
         <div class="row p-2 text-start">
             <h2 class="mb-4">Accès aux établissements</h2>
     <!-- Établissement principal -->
-            <div class="row mb-2 p-2 border-top">
+            <div class="row mb-2 p-2 pe-2 border-top">
                 <div class="col p-2">
                     <h3 class="text-start">Établissement principal</h3>
                     <p class="w-75">Établissement auquel l'employé est rattaché contractuellement</p>
                 </div>            
-                <div class="col p-2 bg-light rounded">
+                <div class="col p-2 me-4 bg-light rounded">
                     <label class="d-block text-start" for="workplace_main">Établissement principal</label>
                     <select name="workplace_main" id="workplace_main" formControlName="workplace_main">
                         <option *ngFor="let workplaces of tempMainWorkplacesList" value="{{workplaces}}">{{workplaces}}</option>
@@ -125,12 +125,12 @@
                 </div>
             </div>
     <!-- Établissement secondaire -->
-            <div class="row mb-5 p-2 border-top">
+            <div class="row mb-5  p-2 border-top">
                 <div class="col p-2">
                     <h3>Établissements secondaires</h3>
                     <p class="w-75">Établissements dans lesquels la personne peut travailler en plus de son établissement principal. </p>
                 </div>            
-                <div class="col bg-light rounded p-2">
+                <div class="col bg-light me-4 rounded p-2">
                     <label class="d-block text-start" for="workplace_secondary">Établissement secondaire</label>
                     <select name="workplace_secondary" id="workplace_secondary" formControlName="workplace_secondary">
                         <option *ngFor="let workplaces of tempSecondaryWorkplacesList" value="{{workplaces}}">{{workplaces}}</option>
@@ -145,19 +145,19 @@
     <!-- Ligne Permission -->
         <div class="row mb-5 p-2 text-start">
             <!-- Etablissements -->
-            <div class="col bg-light rounded p-2">
+            <div class="col p-2">
                 <h6 class="d-block">Établissements</h6>
                 <p class="d-block">{{this.personalDataForm.value.workplace_main}}</p>
             </div>
             <!-- Niveau de permission -->
-            <div class="col p-2">
+            <div class="col bg-light rounded p-2 pe-0 ms-5 me-2">
                 <label class="d-block text-start" for="permission_level">Niveau de permission</label>
                 <select name="permission_level" id="permission_level" formControlName="permission_level">
                     <option *ngFor="let permission of tempPermission_levelList" value="{{permission}}">{{permission}}</option>
                 </select>
             </div>
             <!-- Visibility -->
-            <div class="col bg-light rounded p-2">                
+            <div class="col bg-light rounded me-5 p-2">                
                 <div class="form-check form-switch d-flex flex-column">
                     <label class="form-check-label text-start" for="visibility">Afficher sur le planning</label>
                     <input class="form-check-input no-border" type="checkbox" id="visibility" formControlName="visibility">
