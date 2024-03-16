@@ -18,9 +18,6 @@ export class UserPersonnalDataService {
     getAll() : Observable<PersonalData[]> {
       return this._httpClient.get<PersonalData[]>(this._url);
     }
-    getAllSideList() : Observable<PersonnalDataSideList[]>{
-      return this._httpClient.get<PersonnalDataSideList[]>(this._url);
-    }
     getById(id : number) : Observable<PersonalData> {
       return this._httpClient.get<PersonalData>(`${this._url}/${id}`);
     }
@@ -37,8 +34,8 @@ export class UserPersonnalDataService {
     // La méthode loadUsers() est appelée dans le constructeur du service.
     // Elle met à jour _$userListSource
     loadUsers() : void {
-      this._httpClient.get<PersonalData[]>(this._url).subscribe(users => {
-        // Le bnehavior subject permet d'activer le next quand on désire pour mettrre a jours tos les truc qqui sont subscribe à l'obserbalbe
+      this.getAll().subscribe(users => {
+        // Le behavior subject permet d'activer le next quand on désire pour mettre a jours tos les truc qqui sont subscribe à l'obserbalbe
         this._$userListSource.next(users);
       });
     }    
@@ -46,15 +43,20 @@ export class UserPersonnalDataService {
     // getByIdProfil() est appelé dans la sidebar et transmet l'id de la personne sur qui l'on clique
     // Cela mets à jour le $subjet qui contient l'objet utilisateur de type PersonalData
     // $subjet est utilisé dans le construteur du formulaire du composant personal-data pour chargée les données de l'utilisateur selectionné
+    // J'ai depuis lors rajouter un actualUser qui est utilisé dans le ngOnInit des formulaires. A voir comment adapté pour que cela soit plus propre
     $subjet = new Subject<PersonalData>()
 
-    //test
-
+    //Le actual user est utilisé dans les ngOnInit des formulaires. Sans cela, lorsque je change d'onglet, les données ne sont pas persistantes.
+    // Je ne sais pas si c'est la bonne méthode mais cela fonctionne
+    actualUser! : PersonalData;
+    
     
     getByIdSidebar(id : number) {
-      this._httpClient.get<PersonalData>(`${this._url}/${id}`).subscribe({
+      this.getById(id).subscribe({
         next : (data : PersonalData) => {
+          this.actualUser = data
           this.$subjet.next(data)
+          console.log(this.actualUser)
         },
         error : (data : PersonalData) => {
           console.log('getByIdSidebar(id) à rencontré une erreur ')

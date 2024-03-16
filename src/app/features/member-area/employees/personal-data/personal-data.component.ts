@@ -10,15 +10,11 @@ import { PersonalData } from '../shared-employees/models/personal-data';
 })
 export class PersonalDataComponent{
 
-  // ngOnInit(){
-  //   this._userPersonnalDataService.$subjet.subscribe({
-  //     next : (data : PersonalData) => {
-  //       this.personnalData = data
-  //       console.log(data)
-  //       this.personalDataForm.patchValue(data);
-  //     }
-  //   })
-  // }
+  // Je remplis le formulaire 
+  ngOnInit(){    
+    this.personnalData = this._userPersonnalDataService.actualUser
+    this.personalDataForm.patchValue(this._userPersonnalDataService.actualUser);
+  }
 
   personalDataForm : FormGroup;
 
@@ -31,7 +27,6 @@ export class PersonalDataComponent{
       _userPersonnalDataService.$subjet.subscribe({
         next : (data : PersonalData) => {
           this.personnalData = data
-          console.log(data)
           this.personalDataForm.patchValue(data);
         }
       })

@@ -16,7 +16,6 @@ export class ContractualDataComponent {
     ) {
     this.contractualDataForm = this._fb.group({
       contract_type : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
-      lastname : [null, [Validators.required, Validators.maxLength(100), Validators.pattern(/^[\D]*$/)] , []],
       employment_type : [null, [Validators.maxLength(5)] , []],
       job_title : [null, [Validators.required, Validators.email]],
       organization_entry_date : [null, [Validators.required, Validators.pattern(/^(((\+|00)32[ ]?(?:\(0\)[ ]?)?)|0){1}(4(60|[789]\d)\/?(\s?\d{2}\.?){2}(\s?\d{2})|(\d\/?\s?\d{3}|\d{2}\/?\s?\d{2})(\.?\s?\d{2}){2})$/)] , []],
