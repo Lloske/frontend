@@ -22,30 +22,43 @@ export class UserPersonnalDataService {
       return this._httpClient.get<PersonnalDataSideList[]>(this._url);
     }
     getById(id : number) : Observable<PersonalData> {
-      console.log(this._url)
       return this._httpClient.get<PersonalData>(`${this._url}/${id}`);
     }
     create(contractualData : PersonalData) : Observable<PersonalData> {
       return this._httpClient.post<PersonalData>(this._url, contractualData);
     }
+    
+    // Création d'un tableau d'utilisateurs privé (_$userListSource) vide grâce au BehaviorSubject ([]). 
+    // Création d'un observable $userList public qui contient la liste des utilisateurs. C'est à cet observable que va souscrire notre sidebar dans son NgOnInit()
+    // Cette liste sera mise a jour lorsque l'on appelle la méthode loadUsers()
+    private _$userListSource = new BehaviorSubject<PersonalData[]>([]);
+    $userList = this._$userListSource.asObservable();
+    
+    // La méthode loadUsers() est appelée dans le constructeur du service.
+    // Elle met à jour _$userListSource
+    loadUsers() : void {
+      this._httpClient.get<PersonalData[]>(this._url).subscribe(users => {
+        // Le bnehavior subject permet d'activer le next quand on désire pour mettrre a jours tos les truc qqui sont subscribe à l'obserbalbe
+        this._$userListSource.next(users);
+      });
+    }    
 
-    getByIdProfil(id : number) {
+    // getByIdProfil() est appelé dans la sidebar et transmet l'id de la personne sur qui l'on clique
+    // Cela mets à jour le $subjet qui contient l'objet utilisateur de type PersonalData
+    // $subjet est utilisé dans le construteur du formulaire du composant personal-data pour chargée les données de l'utilisateur selectionné
+    $subjet = new Subject<PersonalData>()
+
+    //test
+
+    
+    getByIdSidebar(id : number) {
       this._httpClient.get<PersonalData>(`${this._url}/${id}`).subscribe({
         next : (data : PersonalData) => {
-          this.subjet.next(data)
+          this.$subjet.next(data)
+        },
+        error : (data : PersonalData) => {
+          console.log('getByIdSidebar(id) à rencontré une erreur ')
         }
       })
     } 
-    subjet = new Subject<PersonalData>()
-    
-    // Création d'une liste d'utilisateur dans le service pour etre utilisée dans la sidebar et les pages updates user
-    private userListSource = new BehaviorSubject<PersonalData[]>([]);
-    userList = this.userListSource.asObservable();
-
-    loadUsers() : void {
-      this._httpClient.get<PersonalData[]>(this._url).subscribe(users => {
-        this.userListSource.next(users);
-      });
-    }
-    
 }

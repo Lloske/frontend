@@ -16,7 +16,7 @@ export class SidebarEmployeesComponent {
   constructor(private _userPersonnalDataService: UserPersonnalDataService) {}
 
   ngOnInit() {
-    this.subscription = this._userPersonnalDataService.userList.subscribe((users: PersonalData[]) => {
+    this.subscription = this._userPersonnalDataService.$userList.subscribe((users: PersonalData[]) => {
       this.userList = users;
     });
   }
@@ -25,8 +25,8 @@ export class SidebarEmployeesComponent {
     this.subscription.unsubscribe();
   }
 
-  select(id : number){
-    this._userPersonnalDataService.getByIdProfil(id)
+  getByIdSidebar(id : number){
+    this._userPersonnalDataService.getByIdSidebar(id)
   }
  
 }

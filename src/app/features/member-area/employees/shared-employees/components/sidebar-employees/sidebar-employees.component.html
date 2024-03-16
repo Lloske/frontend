@@ -3,7 +3,7 @@
 	  <div class="list-group list-group-checkable d-grid gap-2 border-0">
 		<div *ngFor="let user of userList; let i = index">
 		  <input class="list-group-item-check pe-none" type="radio" [name]="'listGroupCheckableRadios'" [id]="'listGroupCheckableRadios' + i" [value]="user.id">
-		  <label class="list-group-item rounded-3 text-start border-0" [for]="'listGroupCheckableRadios' + i" (click)="select(user.id)">
+		  <label class="list-group-item rounded-3 text-start border-0" [for]="'listGroupCheckableRadios' + i" (click)="getByIdSidebar(user.id)">
 			{{ user.firstname }} {{ user.lastname }}
 			<span class="d-block small opacity-50">Rôle à définir</span>
 		  </label>

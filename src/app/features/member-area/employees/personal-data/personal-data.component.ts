@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UserPersonnalDataService } from '../shared-employees/services/user-personnal-data.service';
 import { PersonalData } from '../shared-employees/models/personal-data';
@@ -8,7 +8,18 @@ import { PersonalData } from '../shared-employees/models/personal-data';
   templateUrl: './personal-data.component.html',
   styleUrls: ['./personal-data.component.scss']
 })
-export class PersonalDataComponent {
+export class PersonalDataComponent{
+
+  // ngOnInit(){
+  //   this._userPersonnalDataService.$subjet.subscribe({
+  //     next : (data : PersonalData) => {
+  //       this.personnalData = data
+  //       console.log(data)
+  //       this.personalDataForm.patchValue(data);
+  //     }
+  //   })
+  // }
+
   personalDataForm : FormGroup;
 
   personnalData : PersonalData | undefined
@@ -17,8 +28,7 @@ export class PersonalDataComponent {
     private _fb: FormBuilder,
     private _userPersonnalDataService : UserPersonnalDataService,
     ) {
-
-      _userPersonnalDataService.subjet.subscribe({
+      _userPersonnalDataService.$subjet.subscribe({
         next : (data : PersonalData) => {
           this.personnalData = data
           console.log(data)
@@ -62,10 +72,6 @@ export class PersonalDataComponent {
       console.log("FORMULAIRE INVALIDE");
     }
   };
-
-
-
-
 
 
   // !! A ADAPTER !! Listes temporaires d'établissements/niveau de permission et équipes. En faire venir une du back  

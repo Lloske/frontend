@@ -30,7 +30,6 @@ export class ContractualDataComponent {
       fK_id_user_personnal_information : [null, [Validators.required] , []],
     })
   }
-
   createContractualData() {
     if (this.contractualDataForm.valid) {
       this._contractualDataService.create(this.contractualDataForm.value).subscribe({

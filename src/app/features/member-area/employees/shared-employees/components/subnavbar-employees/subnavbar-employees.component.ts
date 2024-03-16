@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { UserPersonnalDataService } from '../../services/user-personnal-data.service';
+import { PersonalData } from '../../models/personal-data';
 
 @Component({
   selector: 'app-subnavbar-employees',
@@ -6,5 +8,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./subnavbar-employees.component.scss']
 })
 export class SubnavbarEmployeesComponent {
-  active = 1;
+  constructor(private _userPersonnalDataService : UserPersonnalDataService) {
+    this._userPersonnalDataService.$subjet.subscribe({
+      next : (data : PersonalData) => {
+        this.firstName = data.firstname;
+        this.lastName = data.lastname;
+      }
+    })
+  }
+  // active = 1;
+  firstName : string = '';
+  lastName : string = '';
+  role : string = 'Rôle';
 }

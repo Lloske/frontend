@@ -37,7 +37,7 @@ export class CalendarComponent implements OnInit {
       interactionPlugin,
       // bootstrap5Plugin,
     ],
-    events: [ // Shits
+    events: [ // Shifts
     // Doc générale event? https://fullcalendar.io/docs/event-model
     // https://fullcalendar.io/docs/event-object
 
