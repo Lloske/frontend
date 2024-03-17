@@ -4,14 +4,23 @@
             <!-- Barre de recherche -->
             <form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Rechercher" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Rechercher</button>
+                <button (click)="addEmployeeModal()" class="btn btn-outline-success" type="submit">Ajouter</button>
             </form>         
         </div>
         <div class="col d-flex flex-row-reverse">
-            <button class="btn btn-primary btn">Ajouter un employé</button>
-            <button class="btn btn-outline-secondary btn-sm disabled">Email</button>
+            <button (click)="updateEmployee()" class="btn btn-primary btn">Enregistrer</button>
+            <button class="btn me-2 btn-outline-secondary btn-sm disabled">Email</button>
             <button class="btn btn-outline-secondary btn-sm disabled">Signature</button>
-            <button class="btn btn-outline-secondary btn-sm disabled"> RUP</button>
+            <button class="btn btn-outline-secondary btn-sm disabled">RUP</button>
         </div>
     </div>
+</div>
+
+<!-- Modal pour ajouter un employé -->
+<div [ngStyle]="{'display': displayStatus}" id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close" (click)="closeModal()">&times;</span>
+    <app-personal-data></app-personal-data>
+  </div>
 </div>
